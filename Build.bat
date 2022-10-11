@@ -1,1 +1,1 @@
-tools\protobuf\protoc.exe --grpc_out=.\ --plugin=protoc-gen-grpc=.\tools\grpc\grpc_cpp_plugin.exe  --cpp_out=.\ --csharp_out=.\  --java_out=.\    --objc_out=.\  --python_out=.\  --ruby_out=.\   .\helloWorld.proto
+tools\protobuf\protoc.exe --grpc_out=.\ --plugin=protoc-gen-grpc=.\tools\grpc\grpc_cpp_plugin.exe  --cpp_out=.\  --csharp_out=.\helloworld  --java_out=.\helloworld   --objc_out=.\  --python_out=.\  --ruby_out=.\   helloworld\helloWorld.proto
