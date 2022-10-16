@@ -36,7 +36,7 @@ static GPBFileDescriptor *GenerateRsRoot_FileDescriptor(void) {
   static GPBFileDescriptor *descriptor = NULL;
   if (!descriptor) {
     GPB_DEBUG_CHECK_RUNTIME_VERSIONS();
-    descriptor = [[GPBFileDescriptor alloc] initWithPackage:@""
+    descriptor = [[GPBFileDescriptor alloc] initWithPackage:@"AppleRemoteAuth"
                                                      syntax:GPBFileSyntaxProto3];
   }
   return descriptor;
@@ -46,29 +46,19 @@ static GPBFileDescriptor *GenerateRsRoot_FileDescriptor(void) {
 
 @implementation RemoteDeviceInfo
 
-@dynamic rqSize;
 @dynamic rqData;
-@dynamic rqSigSize;
 @dynamic rqSigData;
 @dynamic grappaSessionId;
-@dynamic keyFairPlayGuidLength;
 @dynamic keyFairPlayGuid;
-@dynamic fairPlayCertificateLength;
 @dynamic fairPlayCertificate;
 @dynamic fairDeviceType;
 @dynamic privateKey;
-@dynamic fairPlayGuidLen;
 @dynamic fairPlayGuid;
 
 typedef struct RemoteDeviceInfo__storage_ {
   uint32_t _has_storage_[1];
-  uint32_t rqSize;
-  uint32_t rqSigSize;
   uint32_t grappaSessionId;
-  uint32_t keyFairPlayGuidLength;
-  uint32_t fairPlayCertificateLength;
   uint32_t privateKey;
-  uint32_t fairPlayGuidLen;
   NSData *rqData;
   NSData *rqSigData;
   NSData *keyFairPlayGuid;
@@ -84,37 +74,19 @@ typedef struct RemoteDeviceInfo__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "rqSize",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RemoteDeviceInfo_FieldNumber_RqSize,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, rqSize),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
         .name = "rqData",
         .dataTypeSpecific.clazz = Nil,
         .number = RemoteDeviceInfo_FieldNumber_RqData,
-        .hasIndex = 1,
+        .hasIndex = 0,
         .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, rqData),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
-        .name = "rqSigSize",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RemoteDeviceInfo_FieldNumber_RqSigSize,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, rqSigSize),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
         .name = "rqSigData",
         .dataTypeSpecific.clazz = Nil,
         .number = RemoteDeviceInfo_FieldNumber_RqSigData,
-        .hasIndex = 3,
+        .hasIndex = 1,
         .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, rqSigData),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
@@ -123,17 +95,8 @@ typedef struct RemoteDeviceInfo__storage_ {
         .name = "grappaSessionId",
         .dataTypeSpecific.clazz = Nil,
         .number = RemoteDeviceInfo_FieldNumber_GrappaSessionId,
-        .hasIndex = 4,
+        .hasIndex = 2,
         .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, grappaSessionId),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
-        .name = "keyFairPlayGuidLength",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RemoteDeviceInfo_FieldNumber_KeyFairPlayGuidLength,
-        .hasIndex = 5,
-        .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, keyFairPlayGuidLength),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
@@ -141,25 +104,16 @@ typedef struct RemoteDeviceInfo__storage_ {
         .name = "keyFairPlayGuid",
         .dataTypeSpecific.clazz = Nil,
         .number = RemoteDeviceInfo_FieldNumber_KeyFairPlayGuid,
-        .hasIndex = 6,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, keyFairPlayGuid),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
-        .name = "fairPlayCertificateLength",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RemoteDeviceInfo_FieldNumber_FairPlayCertificateLength,
-        .hasIndex = 7,
-        .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, fairPlayCertificateLength),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
         .name = "fairPlayCertificate",
         .dataTypeSpecific.clazz = Nil,
         .number = RemoteDeviceInfo_FieldNumber_FairPlayCertificate,
-        .hasIndex = 8,
+        .hasIndex = 4,
         .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, fairPlayCertificate),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
@@ -168,7 +122,7 @@ typedef struct RemoteDeviceInfo__storage_ {
         .name = "fairDeviceType",
         .dataTypeSpecific.clazz = Nil,
         .number = RemoteDeviceInfo_FieldNumber_FairDeviceType,
-        .hasIndex = 9,
+        .hasIndex = 5,
         .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, fairDeviceType),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
@@ -177,17 +131,8 @@ typedef struct RemoteDeviceInfo__storage_ {
         .name = "privateKey",
         .dataTypeSpecific.clazz = Nil,
         .number = RemoteDeviceInfo_FieldNumber_PrivateKey,
-        .hasIndex = 10,
+        .hasIndex = 6,
         .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, privateKey),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
-        .name = "fairPlayGuidLen",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RemoteDeviceInfo_FieldNumber_FairPlayGuidLen,
-        .hasIndex = 11,
-        .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, fairPlayGuidLen),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
@@ -195,7 +140,7 @@ typedef struct RemoteDeviceInfo__storage_ {
         .name = "fairPlayGuid",
         .dataTypeSpecific.clazz = Nil,
         .number = RemoteDeviceInfo_FieldNumber_FairPlayGuid,
-        .hasIndex = 12,
+        .hasIndex = 7,
         .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, fairPlayGuid),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
@@ -223,12 +168,10 @@ typedef struct RemoteDeviceInfo__storage_ {
 
 @implementation rsdata
 
-@dynamic rsSize;
 @dynamic rsData;
 
 typedef struct rsdata__storage_ {
   uint32_t _has_storage_[1];
-  uint32_t rsSize;
   NSData *rsData;
 } rsdata__storage_;
 
@@ -239,19 +182,10 @@ typedef struct rsdata__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "rsSize",
-        .dataTypeSpecific.clazz = Nil,
-        .number = rsdata_FieldNumber_RsSize,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(rsdata__storage_, rsSize),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
         .name = "rsData",
         .dataTypeSpecific.clazz = Nil,
         .number = rsdata_FieldNumber_RsData,
-        .hasIndex = 1,
+        .hasIndex = 0,
         .offset = (uint32_t)offsetof(rsdata__storage_, rsData),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,

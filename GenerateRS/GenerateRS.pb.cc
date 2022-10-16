@@ -20,6 +20,7 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::PROTOBUF_NAMESPACE_ID;
 namespace _pbi = _pb::internal;
 
+namespace AppleRemoteAuth {
 PROTOBUF_CONSTEXPR RemoteDeviceInfo::RemoteDeviceInfo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.rq_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -27,14 +28,9 @@ PROTOBUF_CONSTEXPR RemoteDeviceInfo::RemoteDeviceInfo(
   , /*decltype(_impl_.key_fair_play_guid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.fair_play_certificate_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.fair_play_guid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.rq_size_)*/0u
-  , /*decltype(_impl_.rq_sig_size_)*/0u
   , /*decltype(_impl_.grappa_session_id_)*/0u
-  , /*decltype(_impl_.key_fair_play_guid_length_)*/0u
-  , /*decltype(_impl_.fair_play_certificate_length_)*/0u
   , /*decltype(_impl_.private_key_)*/0u
   , /*decltype(_impl_.fair_device_type_)*/int64_t{0}
-  , /*decltype(_impl_.fair_play_guid_len_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RemoteDeviceInfoDefaultTypeInternal {
   PROTOBUF_CONSTEXPR RemoteDeviceInfoDefaultTypeInternal()
@@ -48,7 +44,6 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR rsdata::rsdata(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.rs_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.rs_size_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct rsdataDefaultTypeInternal {
   PROTOBUF_CONSTEXPR rsdataDefaultTypeInternal()
@@ -59,66 +54,59 @@ struct rsdataDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 rsdataDefaultTypeInternal _rsdata_default_instance_;
+}  // namespace AppleRemoteAuth
 static ::_pb::Metadata file_level_metadata_GenerateRS_2eproto[2];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_GenerateRS_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_GenerateRS_2eproto = nullptr;
 
 const uint32_t TableStruct_GenerateRS_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.rq_size_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.rq_data_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.rq_sig_size_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.rq_sig_data_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.grappa_session_id_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.key_fair_play_guid_length_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.key_fair_play_guid_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.fair_play_certificate_length_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.fair_play_certificate_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.fair_device_type_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.private_key_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.fair_play_guid_len_),
-  PROTOBUF_FIELD_OFFSET(::RemoteDeviceInfo, _impl_.fair_play_guid_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.rq_data_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.rq_sig_data_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.grappa_session_id_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.key_fair_play_guid_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.fair_play_certificate_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.fair_device_type_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.private_key_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.fair_play_guid_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::rsdata, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::rsdata, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::rsdata, _impl_.rs_size_),
-  PROTOBUF_FIELD_OFFSET(::rsdata, _impl_.rs_data_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::rsdata, _impl_.rs_data_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::RemoteDeviceInfo)},
-  { 19, -1, -1, sizeof(::rsdata)},
+  { 0, -1, -1, sizeof(::AppleRemoteAuth::RemoteDeviceInfo)},
+  { 14, -1, -1, sizeof(::AppleRemoteAuth::rsdata)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
-  &::_RemoteDeviceInfo_default_instance_._instance,
-  &::_rsdata_default_instance_._instance,
+  &::AppleRemoteAuth::_RemoteDeviceInfo_default_instance_._instance,
+  &::AppleRemoteAuth::_rsdata_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_GenerateRS_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\020GenerateRS.proto\"\340\002\n\020RemoteDeviceInfo\022"
-  "\017\n\007rq_size\030\001 \001(\r\022\017\n\007rq_data\030\002 \001(\014\022\023\n\013rq_"
-  "sig_size\030\003 \001(\r\022\023\n\013rq_sig_data\030\004 \001(\014\022\031\n\021g"
-  "rappa_session_id\030\005 \001(\r\022!\n\031key_fair_play_"
-  "guid_length\030\006 \001(\r\022\032\n\022key_fair_play_guid\030"
-  "\007 \001(\014\022$\n\034fair_play_certificate_length\030\010 "
-  "\001(\r\022\035\n\025fair_play_certificate\030\t \001(\014\022\030\n\020fa"
-  "ir_device_type\030\n \001(\003\022\023\n\013private_key\030\013 \001("
-  "\r\022\032\n\022fair_play_guid_len\030\014 \001(\r\022\026\n\016fair_pl"
-  "ay_guid\030\r \001(\t\"*\n\006rsdata\022\017\n\007rs_size\030\001 \001(\r"
-  "\022\017\n\007rs_data\030\002 \001(\01421\n\003aid\022*\n\nGenerateRS\022\021"
-  ".RemoteDeviceInfo\032\007.rsdata\"\000b\006proto3"
+  "\n\020GenerateRS.proto\022\017AppleRemoteAuth\"\325\001\n\020"
+  "RemoteDeviceInfo\022\017\n\007rq_data\030\001 \001(\014\022\023\n\013rq_"
+  "sig_data\030\002 \001(\014\022\031\n\021grappa_session_id\030\003 \001("
+  "\r\022\032\n\022key_fair_play_guid\030\004 \001(\014\022\035\n\025fair_pl"
+  "ay_certificate\030\005 \001(\014\022\030\n\020fair_device_type"
+  "\030\006 \001(\003\022\023\n\013private_key\030\007 \001(\r\022\026\n\016fair_play"
+  "_guid\030\010 \001(\t\"\031\n\006rsdata\022\017\n\007rs_data\030\001 \001(\0142Q"
+  "\n\003aid\022J\n\nGenerateRS\022!.AppleRemoteAuth.Re"
+  "moteDeviceInfo\032\027.AppleRemoteAuth.rsdata\""
+  "\000b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_GenerateRS_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_GenerateRS_2eproto = {
-    false, false, 476, descriptor_table_protodef_GenerateRS_2eproto,
+    false, false, 369, descriptor_table_protodef_GenerateRS_2eproto,
     "GenerateRS.proto",
     &descriptor_table_GenerateRS_2eproto_once, nullptr, 0, 2,
     schemas, file_default_instances, TableStruct_GenerateRS_2eproto::offsets,
@@ -131,6 +119,7 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_Generate
 
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_GenerateRS_2eproto(&descriptor_table_GenerateRS_2eproto);
+namespace AppleRemoteAuth {
 
 // ===================================================================
 
@@ -142,7 +131,7 @@ RemoteDeviceInfo::RemoteDeviceInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:RemoteDeviceInfo)
+  // @@protoc_insertion_point(arena_constructor:AppleRemoteAuth.RemoteDeviceInfo)
 }
 RemoteDeviceInfo::RemoteDeviceInfo(const RemoteDeviceInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -153,14 +142,9 @@ RemoteDeviceInfo::RemoteDeviceInfo(const RemoteDeviceInfo& from)
     , decltype(_impl_.key_fair_play_guid_){}
     , decltype(_impl_.fair_play_certificate_){}
     , decltype(_impl_.fair_play_guid_){}
-    , decltype(_impl_.rq_size_){}
-    , decltype(_impl_.rq_sig_size_){}
     , decltype(_impl_.grappa_session_id_){}
-    , decltype(_impl_.key_fair_play_guid_length_){}
-    , decltype(_impl_.fair_play_certificate_length_){}
     , decltype(_impl_.private_key_){}
     , decltype(_impl_.fair_device_type_){}
-    , decltype(_impl_.fair_play_guid_len_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -204,10 +188,10 @@ RemoteDeviceInfo::RemoteDeviceInfo(const RemoteDeviceInfo& from)
     _this->_impl_.fair_play_guid_.Set(from._internal_fair_play_guid(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.rq_size_, &from._impl_.rq_size_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.fair_play_guid_len_) -
-    reinterpret_cast<char*>(&_impl_.rq_size_)) + sizeof(_impl_.fair_play_guid_len_));
-  // @@protoc_insertion_point(copy_constructor:RemoteDeviceInfo)
+  ::memcpy(&_impl_.grappa_session_id_, &from._impl_.grappa_session_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.fair_device_type_) -
+    reinterpret_cast<char*>(&_impl_.grappa_session_id_)) + sizeof(_impl_.fair_device_type_));
+  // @@protoc_insertion_point(copy_constructor:AppleRemoteAuth.RemoteDeviceInfo)
 }
 
 inline void RemoteDeviceInfo::SharedCtor(
@@ -220,14 +204,9 @@ inline void RemoteDeviceInfo::SharedCtor(
     , decltype(_impl_.key_fair_play_guid_){}
     , decltype(_impl_.fair_play_certificate_){}
     , decltype(_impl_.fair_play_guid_){}
-    , decltype(_impl_.rq_size_){0u}
-    , decltype(_impl_.rq_sig_size_){0u}
     , decltype(_impl_.grappa_session_id_){0u}
-    , decltype(_impl_.key_fair_play_guid_length_){0u}
-    , decltype(_impl_.fair_play_certificate_length_){0u}
     , decltype(_impl_.private_key_){0u}
     , decltype(_impl_.fair_device_type_){int64_t{0}}
-    , decltype(_impl_.fair_play_guid_len_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.rq_data_.InitDefault();
@@ -253,7 +232,7 @@ inline void RemoteDeviceInfo::SharedCtor(
 }
 
 RemoteDeviceInfo::~RemoteDeviceInfo() {
-  // @@protoc_insertion_point(destructor:RemoteDeviceInfo)
+  // @@protoc_insertion_point(destructor:AppleRemoteAuth.RemoteDeviceInfo)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -275,7 +254,7 @@ void RemoteDeviceInfo::SetCachedSize(int size) const {
 }
 
 void RemoteDeviceInfo::Clear() {
-// @@protoc_insertion_point(message_clear_start:RemoteDeviceInfo)
+// @@protoc_insertion_point(message_clear_start:AppleRemoteAuth.RemoteDeviceInfo)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -285,9 +264,9 @@ void RemoteDeviceInfo::Clear() {
   _impl_.key_fair_play_guid_.ClearToEmpty();
   _impl_.fair_play_certificate_.ClearToEmpty();
   _impl_.fair_play_guid_.ClearToEmpty();
-  ::memset(&_impl_.rq_size_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.fair_play_guid_len_) -
-      reinterpret_cast<char*>(&_impl_.rq_size_)) + sizeof(_impl_.fair_play_guid_len_));
+  ::memset(&_impl_.grappa_session_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.fair_device_type_) -
+      reinterpret_cast<char*>(&_impl_.grappa_session_id_)) + sizeof(_impl_.fair_device_type_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -297,113 +276,73 @@ const char* RemoteDeviceInfo::_InternalParse(const char* ptr, ::_pbi::ParseConte
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 rq_size = 1;
+      // bytes rq_data = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.rq_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bytes rq_data = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_rq_data();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 rq_sig_size = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.rq_sig_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bytes rq_sig_data = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+      // bytes rq_sig_data = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_rq_sig_data();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 grappa_session_id = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+      // uint32 grappa_session_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _impl_.grappa_session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 key_fair_play_guid_length = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
-          _impl_.key_fair_play_guid_length_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bytes key_fair_play_guid = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+      // bytes key_fair_play_guid = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_key_fair_play_guid();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 fair_play_certificate_length = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
-          _impl_.fair_play_certificate_length_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bytes fair_play_certificate = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+      // bytes fair_play_certificate = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_fair_play_certificate();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 fair_device_type = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
+      // int64 fair_device_type = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           _impl_.fair_device_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 private_key = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
+      // uint32 private_key = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           _impl_.private_key_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 fair_play_guid_len = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 96)) {
-          _impl_.fair_play_guid_len_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // string fair_play_guid = 13;
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 106)) {
+      // string fair_play_guid = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           auto str = _internal_mutable_fair_play_guid();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "RemoteDeviceInfo.fair_play_guid"));
+          CHK_(::_pbi::VerifyUTF8(str, "AppleRemoteAuth.RemoteDeviceInfo.fair_play_guid"));
         } else
           goto handle_unusual;
         continue;
@@ -432,181 +371,126 @@ failure:
 
 uint8_t* RemoteDeviceInfo::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:RemoteDeviceInfo)
+  // @@protoc_insertion_point(serialize_to_array_start:AppleRemoteAuth.RemoteDeviceInfo)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 rq_size = 1;
-  if (this->_internal_rq_size() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_rq_size(), target);
-  }
-
-  // bytes rq_data = 2;
+  // bytes rq_data = 1;
   if (!this->_internal_rq_data().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_rq_data(), target);
+        1, this->_internal_rq_data(), target);
   }
 
-  // uint32 rq_sig_size = 3;
-  if (this->_internal_rq_sig_size() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_rq_sig_size(), target);
-  }
-
-  // bytes rq_sig_data = 4;
+  // bytes rq_sig_data = 2;
   if (!this->_internal_rq_sig_data().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        4, this->_internal_rq_sig_data(), target);
+        2, this->_internal_rq_sig_data(), target);
   }
 
-  // uint32 grappa_session_id = 5;
+  // uint32 grappa_session_id = 3;
   if (this->_internal_grappa_session_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_grappa_session_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_grappa_session_id(), target);
   }
 
-  // uint32 key_fair_play_guid_length = 6;
-  if (this->_internal_key_fair_play_guid_length() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_key_fair_play_guid_length(), target);
-  }
-
-  // bytes key_fair_play_guid = 7;
+  // bytes key_fair_play_guid = 4;
   if (!this->_internal_key_fair_play_guid().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        7, this->_internal_key_fair_play_guid(), target);
+        4, this->_internal_key_fair_play_guid(), target);
   }
 
-  // uint32 fair_play_certificate_length = 8;
-  if (this->_internal_fair_play_certificate_length() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(8, this->_internal_fair_play_certificate_length(), target);
-  }
-
-  // bytes fair_play_certificate = 9;
+  // bytes fair_play_certificate = 5;
   if (!this->_internal_fair_play_certificate().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        9, this->_internal_fair_play_certificate(), target);
+        5, this->_internal_fair_play_certificate(), target);
   }
 
-  // int64 fair_device_type = 10;
+  // int64 fair_device_type = 6;
   if (this->_internal_fair_device_type() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(10, this->_internal_fair_device_type(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(6, this->_internal_fair_device_type(), target);
   }
 
-  // uint32 private_key = 11;
+  // uint32 private_key = 7;
   if (this->_internal_private_key() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(11, this->_internal_private_key(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_private_key(), target);
   }
 
-  // uint32 fair_play_guid_len = 12;
-  if (this->_internal_fair_play_guid_len() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(12, this->_internal_fair_play_guid_len(), target);
-  }
-
-  // string fair_play_guid = 13;
+  // string fair_play_guid = 8;
   if (!this->_internal_fair_play_guid().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_fair_play_guid().data(), static_cast<int>(this->_internal_fair_play_guid().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "RemoteDeviceInfo.fair_play_guid");
+      "AppleRemoteAuth.RemoteDeviceInfo.fair_play_guid");
     target = stream->WriteStringMaybeAliased(
-        13, this->_internal_fair_play_guid(), target);
+        8, this->_internal_fair_play_guid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:RemoteDeviceInfo)
+  // @@protoc_insertion_point(serialize_to_array_end:AppleRemoteAuth.RemoteDeviceInfo)
   return target;
 }
 
 size_t RemoteDeviceInfo::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:RemoteDeviceInfo)
+// @@protoc_insertion_point(message_byte_size_start:AppleRemoteAuth.RemoteDeviceInfo)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes rq_data = 2;
+  // bytes rq_data = 1;
   if (!this->_internal_rq_data().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_rq_data());
   }
 
-  // bytes rq_sig_data = 4;
+  // bytes rq_sig_data = 2;
   if (!this->_internal_rq_sig_data().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_rq_sig_data());
   }
 
-  // bytes key_fair_play_guid = 7;
+  // bytes key_fair_play_guid = 4;
   if (!this->_internal_key_fair_play_guid().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_key_fair_play_guid());
   }
 
-  // bytes fair_play_certificate = 9;
+  // bytes fair_play_certificate = 5;
   if (!this->_internal_fair_play_certificate().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_fair_play_certificate());
   }
 
-  // string fair_play_guid = 13;
+  // string fair_play_guid = 8;
   if (!this->_internal_fair_play_guid().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_fair_play_guid());
   }
 
-  // uint32 rq_size = 1;
-  if (this->_internal_rq_size() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_rq_size());
-  }
-
-  // uint32 rq_sig_size = 3;
-  if (this->_internal_rq_sig_size() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_rq_sig_size());
-  }
-
-  // uint32 grappa_session_id = 5;
+  // uint32 grappa_session_id = 3;
   if (this->_internal_grappa_session_id() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_grappa_session_id());
   }
 
-  // uint32 key_fair_play_guid_length = 6;
-  if (this->_internal_key_fair_play_guid_length() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_key_fair_play_guid_length());
-  }
-
-  // uint32 fair_play_certificate_length = 8;
-  if (this->_internal_fair_play_certificate_length() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_fair_play_certificate_length());
-  }
-
-  // uint32 private_key = 11;
+  // uint32 private_key = 7;
   if (this->_internal_private_key() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_private_key());
   }
 
-  // int64 fair_device_type = 10;
+  // int64 fair_device_type = 6;
   if (this->_internal_fair_device_type() != 0) {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_fair_device_type());
-  }
-
-  // uint32 fair_play_guid_len = 12;
-  if (this->_internal_fair_play_guid_len() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_fair_play_guid_len());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -622,7 +506,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RemoteDeviceInfo::GetClassData
 void RemoteDeviceInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
   auto* const _this = static_cast<RemoteDeviceInfo*>(&to_msg);
   auto& from = static_cast<const RemoteDeviceInfo&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:RemoteDeviceInfo)
+  // @@protoc_insertion_point(class_specific_merge_from_start:AppleRemoteAuth.RemoteDeviceInfo)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -642,20 +526,8 @@ void RemoteDeviceInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
   if (!from._internal_fair_play_guid().empty()) {
     _this->_internal_set_fair_play_guid(from._internal_fair_play_guid());
   }
-  if (from._internal_rq_size() != 0) {
-    _this->_internal_set_rq_size(from._internal_rq_size());
-  }
-  if (from._internal_rq_sig_size() != 0) {
-    _this->_internal_set_rq_sig_size(from._internal_rq_sig_size());
-  }
   if (from._internal_grappa_session_id() != 0) {
     _this->_internal_set_grappa_session_id(from._internal_grappa_session_id());
-  }
-  if (from._internal_key_fair_play_guid_length() != 0) {
-    _this->_internal_set_key_fair_play_guid_length(from._internal_key_fair_play_guid_length());
-  }
-  if (from._internal_fair_play_certificate_length() != 0) {
-    _this->_internal_set_fair_play_certificate_length(from._internal_fair_play_certificate_length());
   }
   if (from._internal_private_key() != 0) {
     _this->_internal_set_private_key(from._internal_private_key());
@@ -663,14 +535,11 @@ void RemoteDeviceInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
   if (from._internal_fair_device_type() != 0) {
     _this->_internal_set_fair_device_type(from._internal_fair_device_type());
   }
-  if (from._internal_fair_play_guid_len() != 0) {
-    _this->_internal_set_fair_play_guid_len(from._internal_fair_play_guid_len());
-  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RemoteDeviceInfo::CopyFrom(const RemoteDeviceInfo& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:RemoteDeviceInfo)
+// @@protoc_insertion_point(class_specific_copy_from_start:AppleRemoteAuth.RemoteDeviceInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -706,11 +575,11 @@ void RemoteDeviceInfo::InternalSwap(RemoteDeviceInfo* other) {
       &other->_impl_.fair_play_guid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RemoteDeviceInfo, _impl_.fair_play_guid_len_)
-      + sizeof(RemoteDeviceInfo::_impl_.fair_play_guid_len_)
-      - PROTOBUF_FIELD_OFFSET(RemoteDeviceInfo, _impl_.rq_size_)>(
-          reinterpret_cast<char*>(&_impl_.rq_size_),
-          reinterpret_cast<char*>(&other->_impl_.rq_size_));
+      PROTOBUF_FIELD_OFFSET(RemoteDeviceInfo, _impl_.fair_device_type_)
+      + sizeof(RemoteDeviceInfo::_impl_.fair_device_type_)
+      - PROTOBUF_FIELD_OFFSET(RemoteDeviceInfo, _impl_.grappa_session_id_)>(
+          reinterpret_cast<char*>(&_impl_.grappa_session_id_),
+          reinterpret_cast<char*>(&other->_impl_.grappa_session_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RemoteDeviceInfo::GetMetadata() const {
@@ -729,14 +598,13 @@ rsdata::rsdata(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:rsdata)
+  // @@protoc_insertion_point(arena_constructor:AppleRemoteAuth.rsdata)
 }
 rsdata::rsdata(const rsdata& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   rsdata* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.rs_data_){}
-    , decltype(_impl_.rs_size_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -748,8 +616,7 @@ rsdata::rsdata(const rsdata& from)
     _this->_impl_.rs_data_.Set(from._internal_rs_data(), 
       _this->GetArenaForAllocation());
   }
-  _this->_impl_.rs_size_ = from._impl_.rs_size_;
-  // @@protoc_insertion_point(copy_constructor:rsdata)
+  // @@protoc_insertion_point(copy_constructor:AppleRemoteAuth.rsdata)
 }
 
 inline void rsdata::SharedCtor(
@@ -758,7 +625,6 @@ inline void rsdata::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.rs_data_){}
-    , decltype(_impl_.rs_size_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.rs_data_.InitDefault();
@@ -768,7 +634,7 @@ inline void rsdata::SharedCtor(
 }
 
 rsdata::~rsdata() {
-  // @@protoc_insertion_point(destructor:rsdata)
+  // @@protoc_insertion_point(destructor:AppleRemoteAuth.rsdata)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -786,13 +652,12 @@ void rsdata::SetCachedSize(int size) const {
 }
 
 void rsdata::Clear() {
-// @@protoc_insertion_point(message_clear_start:rsdata)
+// @@protoc_insertion_point(message_clear_start:AppleRemoteAuth.rsdata)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   _impl_.rs_data_.ClearToEmpty();
-  _impl_.rs_size_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -802,17 +667,9 @@ const char* rsdata::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 rs_size = 1;
+      // bytes rs_data = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.rs_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bytes rs_data = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_rs_data();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -844,48 +701,37 @@ failure:
 
 uint8_t* rsdata::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:rsdata)
+  // @@protoc_insertion_point(serialize_to_array_start:AppleRemoteAuth.rsdata)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 rs_size = 1;
-  if (this->_internal_rs_size() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_rs_size(), target);
-  }
-
-  // bytes rs_data = 2;
+  // bytes rs_data = 1;
   if (!this->_internal_rs_data().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_rs_data(), target);
+        1, this->_internal_rs_data(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:rsdata)
+  // @@protoc_insertion_point(serialize_to_array_end:AppleRemoteAuth.rsdata)
   return target;
 }
 
 size_t rsdata::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:rsdata)
+// @@protoc_insertion_point(message_byte_size_start:AppleRemoteAuth.rsdata)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes rs_data = 2;
+  // bytes rs_data = 1;
   if (!this->_internal_rs_data().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_rs_data());
-  }
-
-  // uint32 rs_size = 1;
-  if (this->_internal_rs_size() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_rs_size());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -901,7 +747,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*rsdata::GetClassData() const {
 void rsdata::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
   auto* const _this = static_cast<rsdata*>(&to_msg);
   auto& from = static_cast<const rsdata&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:rsdata)
+  // @@protoc_insertion_point(class_specific_merge_from_start:AppleRemoteAuth.rsdata)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -909,14 +755,11 @@ void rsdata::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBU
   if (!from._internal_rs_data().empty()) {
     _this->_internal_set_rs_data(from._internal_rs_data());
   }
-  if (from._internal_rs_size() != 0) {
-    _this->_internal_set_rs_size(from._internal_rs_size());
-  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void rsdata::CopyFrom(const rsdata& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:rsdata)
+// @@protoc_insertion_point(class_specific_copy_from_start:AppleRemoteAuth.rsdata)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -935,7 +778,6 @@ void rsdata::InternalSwap(rsdata* other) {
       &_impl_.rs_data_, lhs_arena,
       &other->_impl_.rs_data_, rhs_arena
   );
-  swap(_impl_.rs_size_, other->_impl_.rs_size_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata rsdata::GetMetadata() const {
@@ -945,14 +787,15 @@ void rsdata::InternalSwap(rsdata* other) {
 }
 
 // @@protoc_insertion_point(namespace_scope)
+}  // namespace AppleRemoteAuth
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::RemoteDeviceInfo*
-Arena::CreateMaybeMessage< ::RemoteDeviceInfo >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::RemoteDeviceInfo >(arena);
+template<> PROTOBUF_NOINLINE ::AppleRemoteAuth::RemoteDeviceInfo*
+Arena::CreateMaybeMessage< ::AppleRemoteAuth::RemoteDeviceInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::AppleRemoteAuth::RemoteDeviceInfo >(arena);
 }
-template<> PROTOBUF_NOINLINE ::rsdata*
-Arena::CreateMaybeMessage< ::rsdata >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::rsdata >(arena);
+template<> PROTOBUF_NOINLINE ::AppleRemoteAuth::rsdata*
+Arena::CreateMaybeMessage< ::AppleRemoteAuth::rsdata >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::AppleRemoteAuth::rsdata >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

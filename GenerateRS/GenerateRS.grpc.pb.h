@@ -40,52 +40,54 @@
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 
+namespace AppleRemoteAuth {
+
 // The aid service definition.
 class aid final {
  public:
   static constexpr char const* service_full_name() {
-    return "aid";
+    return "AppleRemoteAuth.aid";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    // Sends a greeting
-    virtual ::grpc::Status GenerateRS(::grpc::ClientContext* context, const ::RemoteDeviceInfo& request, ::rsdata* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::rsdata>> AsyncGenerateRS(::grpc::ClientContext* context, const ::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::rsdata>>(AsyncGenerateRSRaw(context, request, cq));
+    // 
+    virtual ::grpc::Status GenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::AppleRemoteAuth::rsdata* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsdata>> AsyncGenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsdata>>(AsyncGenerateRSRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::rsdata>> PrepareAsyncGenerateRS(::grpc::ClientContext* context, const ::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::rsdata>>(PrepareAsyncGenerateRSRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsdata>> PrepareAsyncGenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsdata>>(PrepareAsyncGenerateRSRaw(context, request, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
-      // Sends a greeting
-      virtual void GenerateRS(::grpc::ClientContext* context, const ::RemoteDeviceInfo* request, ::rsdata* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GenerateRS(::grpc::ClientContext* context, const ::RemoteDeviceInfo* request, ::rsdata* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // 
+      virtual void GenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo* request, ::AppleRemoteAuth::rsdata* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo* request, ::AppleRemoteAuth::rsdata* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::rsdata>* AsyncGenerateRSRaw(::grpc::ClientContext* context, const ::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::rsdata>* PrepareAsyncGenerateRSRaw(::grpc::ClientContext* context, const ::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsdata>* AsyncGenerateRSRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsdata>* PrepareAsyncGenerateRSRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status GenerateRS(::grpc::ClientContext* context, const ::RemoteDeviceInfo& request, ::rsdata* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::rsdata>> AsyncGenerateRS(::grpc::ClientContext* context, const ::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::rsdata>>(AsyncGenerateRSRaw(context, request, cq));
+    ::grpc::Status GenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::AppleRemoteAuth::rsdata* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsdata>> AsyncGenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsdata>>(AsyncGenerateRSRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::rsdata>> PrepareAsyncGenerateRS(::grpc::ClientContext* context, const ::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::rsdata>>(PrepareAsyncGenerateRSRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsdata>> PrepareAsyncGenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsdata>>(PrepareAsyncGenerateRSRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void GenerateRS(::grpc::ClientContext* context, const ::RemoteDeviceInfo* request, ::rsdata* response, std::function<void(::grpc::Status)>) override;
-      void GenerateRS(::grpc::ClientContext* context, const ::RemoteDeviceInfo* request, ::rsdata* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo* request, ::AppleRemoteAuth::rsdata* response, std::function<void(::grpc::Status)>) override;
+      void GenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo* request, ::AppleRemoteAuth::rsdata* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -97,8 +99,8 @@ class aid final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::rsdata>* AsyncGenerateRSRaw(::grpc::ClientContext* context, const ::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::rsdata>* PrepareAsyncGenerateRSRaw(::grpc::ClientContext* context, const ::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsdata>* AsyncGenerateRSRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsdata>* PrepareAsyncGenerateRSRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GenerateRS_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -107,8 +109,8 @@ class aid final {
    public:
     Service();
     virtual ~Service();
-    // Sends a greeting
-    virtual ::grpc::Status GenerateRS(::grpc::ServerContext* context, const ::RemoteDeviceInfo* request, ::rsdata* response);
+    // 
+    virtual ::grpc::Status GenerateRS(::grpc::ServerContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo* request, ::AppleRemoteAuth::rsdata* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GenerateRS : public BaseClass {
@@ -122,11 +124,11 @@ class aid final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::RemoteDeviceInfo* /*request*/, ::rsdata* /*response*/) override {
+    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::RemoteDeviceInfo* /*request*/, ::AppleRemoteAuth::rsdata* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGenerateRS(::grpc::ServerContext* context, ::RemoteDeviceInfo* request, ::grpc::ServerAsyncResponseWriter< ::rsdata>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGenerateRS(::grpc::ServerContext* context, ::AppleRemoteAuth::RemoteDeviceInfo* request, ::grpc::ServerAsyncResponseWriter< ::AppleRemoteAuth::rsdata>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -138,25 +140,25 @@ class aid final {
    public:
     WithCallbackMethod_GenerateRS() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::RemoteDeviceInfo, ::rsdata>(
+          new ::grpc::internal::CallbackUnaryHandler< ::AppleRemoteAuth::RemoteDeviceInfo, ::AppleRemoteAuth::rsdata>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::RemoteDeviceInfo* request, ::rsdata* response) { return this->GenerateRS(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo* request, ::AppleRemoteAuth::rsdata* response) { return this->GenerateRS(context, request, response); }));}
     void SetMessageAllocatorFor_GenerateRS(
-        ::grpc::MessageAllocator< ::RemoteDeviceInfo, ::rsdata>* allocator) {
+        ::grpc::MessageAllocator< ::AppleRemoteAuth::RemoteDeviceInfo, ::AppleRemoteAuth::rsdata>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::RemoteDeviceInfo, ::rsdata>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::AppleRemoteAuth::RemoteDeviceInfo, ::AppleRemoteAuth::rsdata>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GenerateRS() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::RemoteDeviceInfo* /*request*/, ::rsdata* /*response*/) override {
+    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::RemoteDeviceInfo* /*request*/, ::AppleRemoteAuth::rsdata* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GenerateRS(
-      ::grpc::CallbackServerContext* /*context*/, const ::RemoteDeviceInfo* /*request*/, ::rsdata* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::AppleRemoteAuth::RemoteDeviceInfo* /*request*/, ::AppleRemoteAuth::rsdata* /*response*/)  { return nullptr; }
   };
   typedef WithCallbackMethod_GenerateRS<Service > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
@@ -172,7 +174,7 @@ class aid final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::RemoteDeviceInfo* /*request*/, ::rsdata* /*response*/) override {
+    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::RemoteDeviceInfo* /*request*/, ::AppleRemoteAuth::rsdata* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -189,7 +191,7 @@ class aid final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::RemoteDeviceInfo* /*request*/, ::rsdata* /*response*/) override {
+    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::RemoteDeviceInfo* /*request*/, ::AppleRemoteAuth::rsdata* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -212,7 +214,7 @@ class aid final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::RemoteDeviceInfo* /*request*/, ::rsdata* /*response*/) override {
+    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::RemoteDeviceInfo* /*request*/, ::AppleRemoteAuth::rsdata* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -227,10 +229,10 @@ class aid final {
     WithStreamedUnaryMethod_GenerateRS() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::RemoteDeviceInfo, ::rsdata>(
+          ::AppleRemoteAuth::RemoteDeviceInfo, ::AppleRemoteAuth::rsdata>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::RemoteDeviceInfo, ::rsdata>* streamer) {
+                     ::AppleRemoteAuth::RemoteDeviceInfo, ::AppleRemoteAuth::rsdata>* streamer) {
                        return this->StreamedGenerateRS(context,
                          streamer);
                   }));
@@ -239,17 +241,19 @@ class aid final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::RemoteDeviceInfo* /*request*/, ::rsdata* /*response*/) override {
+    ::grpc::Status GenerateRS(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::RemoteDeviceInfo* /*request*/, ::AppleRemoteAuth::rsdata* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGenerateRS(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::RemoteDeviceInfo,::rsdata>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGenerateRS(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::AppleRemoteAuth::RemoteDeviceInfo,::AppleRemoteAuth::rsdata>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_GenerateRS<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;
   typedef WithStreamedUnaryMethod_GenerateRS<Service > StreamedService;
 };
+
+}  // namespace AppleRemoteAuth
 
 
 #endif  // GRPC_GenerateRS_2eproto__INCLUDED

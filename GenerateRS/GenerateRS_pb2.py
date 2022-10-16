@@ -13,17 +13,17 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10GenerateRS.proto\"\xe0\x02\n\x10RemoteDeviceInfo\x12\x0f\n\x07rq_size\x18\x01 \x01(\r\x12\x0f\n\x07rq_data\x18\x02 \x01(\x0c\x12\x13\n\x0brq_sig_size\x18\x03 \x01(\r\x12\x13\n\x0brq_sig_data\x18\x04 \x01(\x0c\x12\x19\n\x11grappa_session_id\x18\x05 \x01(\r\x12!\n\x19key_fair_play_guid_length\x18\x06 \x01(\r\x12\x1a\n\x12key_fair_play_guid\x18\x07 \x01(\x0c\x12$\n\x1c\x66\x61ir_play_certificate_length\x18\x08 \x01(\r\x12\x1d\n\x15\x66\x61ir_play_certificate\x18\t \x01(\x0c\x12\x18\n\x10\x66\x61ir_device_type\x18\n \x01(\x03\x12\x13\n\x0bprivate_key\x18\x0b \x01(\r\x12\x1a\n\x12\x66\x61ir_play_guid_len\x18\x0c \x01(\r\x12\x16\n\x0e\x66\x61ir_play_guid\x18\r \x01(\t\"*\n\x06rsdata\x12\x0f\n\x07rs_size\x18\x01 \x01(\r\x12\x0f\n\x07rs_data\x18\x02 \x01(\x0c\x32\x31\n\x03\x61id\x12*\n\nGenerateRS\x12\x11.RemoteDeviceInfo\x1a\x07.rsdata\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10GenerateRS.proto\x12\x0f\x41ppleRemoteAuth\"\xd5\x01\n\x10RemoteDeviceInfo\x12\x0f\n\x07rq_data\x18\x01 \x01(\x0c\x12\x13\n\x0brq_sig_data\x18\x02 \x01(\x0c\x12\x19\n\x11grappa_session_id\x18\x03 \x01(\r\x12\x1a\n\x12key_fair_play_guid\x18\x04 \x01(\x0c\x12\x1d\n\x15\x66\x61ir_play_certificate\x18\x05 \x01(\x0c\x12\x18\n\x10\x66\x61ir_device_type\x18\x06 \x01(\x03\x12\x13\n\x0bprivate_key\x18\x07 \x01(\r\x12\x16\n\x0e\x66\x61ir_play_guid\x18\x08 \x01(\t\"\x19\n\x06rsdata\x12\x0f\n\x07rs_data\x18\x01 \x01(\x0c\x32Q\n\x03\x61id\x12J\n\nGenerateRS\x12!.AppleRemoteAuth.RemoteDeviceInfo\x1a\x17.AppleRemoteAuth.rsdata\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'GenerateRS_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _REMOTEDEVICEINFO._serialized_start=21
-  _REMOTEDEVICEINFO._serialized_end=373
-  _RSDATA._serialized_start=375
-  _RSDATA._serialized_end=417
-  _AID._serialized_start=419
-  _AID._serialized_end=468
+  _REMOTEDEVICEINFO._serialized_start=38
+  _REMOTEDEVICEINFO._serialized_end=251
+  _RSDATA._serialized_start=253
+  _RSDATA._serialized_end=278
+  _AID._serialized_start=280
+  _AID._serialized_end=361
 # @@protoc_insertion_point(module_scope)

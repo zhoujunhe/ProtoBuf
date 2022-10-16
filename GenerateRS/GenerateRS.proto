@@ -13,31 +13,27 @@
 // limitations under the License.
 
 syntax = "proto3";
+package AppleRemoteAuth;
+
 // The aid service definition.
 service aid {
-  // Sends a greeting
+  // 
   rpc GenerateRS (RemoteDeviceInfo) returns (rsdata) {}
 }
 
 // The request message 
 message RemoteDeviceInfo {
-  uint32 rq_size = 1;
-  bytes rq_data=2;
-  uint32 rq_sig_size=3;
-  bytes rq_sig_data=4;
-  uint32 grappa_session_id=5;
-  uint32 key_fair_play_guid_length=6;
-  bytes key_fair_play_guid=7;
-  uint32 fair_play_certificate_length=8;
-  bytes fair_play_certificate=9;
-  int64 fair_device_type=10;
-  uint32 private_key=11;
-  uint32 fair_play_guid_len=12;
-  string fair_play_guid=13;
+  bytes rq_data=1;
+  bytes rq_sig_data=2;
+  uint32 grappa_session_id=3;
+  bytes key_fair_play_guid=4;
+  bytes fair_play_certificate=5;
+  int64 fair_device_type=6;
+  uint32 private_key=7;
+  string fair_play_guid=8;
 }
 
 // The response message 
 message rsdata {
-  uint32 rs_size = 1;
-  bytes rs_data = 2;
+  bytes rs_data = 1;
 }

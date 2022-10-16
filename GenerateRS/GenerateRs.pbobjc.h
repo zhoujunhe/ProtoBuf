@@ -47,19 +47,14 @@ GPB_FINAL @interface GenerateRsRoot : GPBRootObject
 #pragma mark - RemoteDeviceInfo
 
 typedef GPB_ENUM(RemoteDeviceInfo_FieldNumber) {
-  RemoteDeviceInfo_FieldNumber_RqSize = 1,
-  RemoteDeviceInfo_FieldNumber_RqData = 2,
-  RemoteDeviceInfo_FieldNumber_RqSigSize = 3,
-  RemoteDeviceInfo_FieldNumber_RqSigData = 4,
-  RemoteDeviceInfo_FieldNumber_GrappaSessionId = 5,
-  RemoteDeviceInfo_FieldNumber_KeyFairPlayGuidLength = 6,
-  RemoteDeviceInfo_FieldNumber_KeyFairPlayGuid = 7,
-  RemoteDeviceInfo_FieldNumber_FairPlayCertificateLength = 8,
-  RemoteDeviceInfo_FieldNumber_FairPlayCertificate = 9,
-  RemoteDeviceInfo_FieldNumber_FairDeviceType = 10,
-  RemoteDeviceInfo_FieldNumber_PrivateKey = 11,
-  RemoteDeviceInfo_FieldNumber_FairPlayGuidLen = 12,
-  RemoteDeviceInfo_FieldNumber_FairPlayGuid = 13,
+  RemoteDeviceInfo_FieldNumber_RqData = 1,
+  RemoteDeviceInfo_FieldNumber_RqSigData = 2,
+  RemoteDeviceInfo_FieldNumber_GrappaSessionId = 3,
+  RemoteDeviceInfo_FieldNumber_KeyFairPlayGuid = 4,
+  RemoteDeviceInfo_FieldNumber_FairPlayCertificate = 5,
+  RemoteDeviceInfo_FieldNumber_FairDeviceType = 6,
+  RemoteDeviceInfo_FieldNumber_PrivateKey = 7,
+  RemoteDeviceInfo_FieldNumber_FairPlayGuid = 8,
 };
 
 /**
@@ -67,29 +62,19 @@ typedef GPB_ENUM(RemoteDeviceInfo_FieldNumber) {
  **/
 GPB_FINAL @interface RemoteDeviceInfo : GPBMessage
 
-@property(nonatomic, readwrite) uint32_t rqSize;
-
 @property(nonatomic, readwrite, copy, null_resettable) NSData *rqData;
-
-@property(nonatomic, readwrite) uint32_t rqSigSize;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *rqSigData;
 
 @property(nonatomic, readwrite) uint32_t grappaSessionId;
 
-@property(nonatomic, readwrite) uint32_t keyFairPlayGuidLength;
-
 @property(nonatomic, readwrite, copy, null_resettable) NSData *keyFairPlayGuid;
-
-@property(nonatomic, readwrite) uint32_t fairPlayCertificateLength;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *fairPlayCertificate;
 
 @property(nonatomic, readwrite) int64_t fairDeviceType;
 
 @property(nonatomic, readwrite) uint32_t privateKey;
-
-@property(nonatomic, readwrite) uint32_t fairPlayGuidLen;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *fairPlayGuid;
 
@@ -98,16 +83,13 @@ GPB_FINAL @interface RemoteDeviceInfo : GPBMessage
 #pragma mark - rsdata
 
 typedef GPB_ENUM(rsdata_FieldNumber) {
-  rsdata_FieldNumber_RsSize = 1,
-  rsdata_FieldNumber_RsData = 2,
+  rsdata_FieldNumber_RsData = 1,
 };
 
 /**
  * The response message
  **/
 GPB_FINAL @interface rsdata : GPBMessage
-
-@property(nonatomic, readwrite) uint32_t rsSize;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *rsData;
 

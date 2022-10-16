@@ -44,21 +44,24 @@ struct TableStruct_GenerateRS_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GenerateRS_2eproto;
+namespace AppleRemoteAuth {
 class RemoteDeviceInfo;
 struct RemoteDeviceInfoDefaultTypeInternal;
 extern RemoteDeviceInfoDefaultTypeInternal _RemoteDeviceInfo_default_instance_;
 class rsdata;
 struct rsdataDefaultTypeInternal;
 extern rsdataDefaultTypeInternal _rsdata_default_instance_;
+}  // namespace AppleRemoteAuth
 PROTOBUF_NAMESPACE_OPEN
-template<> ::RemoteDeviceInfo* Arena::CreateMaybeMessage<::RemoteDeviceInfo>(Arena*);
-template<> ::rsdata* Arena::CreateMaybeMessage<::rsdata>(Arena*);
+template<> ::AppleRemoteAuth::RemoteDeviceInfo* Arena::CreateMaybeMessage<::AppleRemoteAuth::RemoteDeviceInfo>(Arena*);
+template<> ::AppleRemoteAuth::rsdata* Arena::CreateMaybeMessage<::AppleRemoteAuth::rsdata>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
+namespace AppleRemoteAuth {
 
 // ===================================================================
 
 class RemoteDeviceInfo final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:RemoteDeviceInfo) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:AppleRemoteAuth.RemoteDeviceInfo) */ {
  public:
   inline RemoteDeviceInfo() : RemoteDeviceInfo(nullptr) {}
   ~RemoteDeviceInfo() override;
@@ -161,7 +164,7 @@ class RemoteDeviceInfo final :
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "RemoteDeviceInfo";
+    return "AppleRemoteAuth.RemoteDeviceInfo";
   }
   protected:
   explicit RemoteDeviceInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -178,21 +181,16 @@ class RemoteDeviceInfo final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRqDataFieldNumber = 2,
-    kRqSigDataFieldNumber = 4,
-    kKeyFairPlayGuidFieldNumber = 7,
-    kFairPlayCertificateFieldNumber = 9,
-    kFairPlayGuidFieldNumber = 13,
-    kRqSizeFieldNumber = 1,
-    kRqSigSizeFieldNumber = 3,
-    kGrappaSessionIdFieldNumber = 5,
-    kKeyFairPlayGuidLengthFieldNumber = 6,
-    kFairPlayCertificateLengthFieldNumber = 8,
-    kPrivateKeyFieldNumber = 11,
-    kFairDeviceTypeFieldNumber = 10,
-    kFairPlayGuidLenFieldNumber = 12,
+    kRqDataFieldNumber = 1,
+    kRqSigDataFieldNumber = 2,
+    kKeyFairPlayGuidFieldNumber = 4,
+    kFairPlayCertificateFieldNumber = 5,
+    kFairPlayGuidFieldNumber = 8,
+    kGrappaSessionIdFieldNumber = 3,
+    kPrivateKeyFieldNumber = 7,
+    kFairDeviceTypeFieldNumber = 6,
   };
-  // bytes rq_data = 2;
+  // bytes rq_data = 1;
   void clear_rq_data();
   const std::string& rq_data() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -206,7 +204,7 @@ class RemoteDeviceInfo final :
   std::string* _internal_mutable_rq_data();
   public:
 
-  // bytes rq_sig_data = 4;
+  // bytes rq_sig_data = 2;
   void clear_rq_sig_data();
   const std::string& rq_sig_data() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -220,7 +218,7 @@ class RemoteDeviceInfo final :
   std::string* _internal_mutable_rq_sig_data();
   public:
 
-  // bytes key_fair_play_guid = 7;
+  // bytes key_fair_play_guid = 4;
   void clear_key_fair_play_guid();
   const std::string& key_fair_play_guid() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -234,7 +232,7 @@ class RemoteDeviceInfo final :
   std::string* _internal_mutable_key_fair_play_guid();
   public:
 
-  // bytes fair_play_certificate = 9;
+  // bytes fair_play_certificate = 5;
   void clear_fair_play_certificate();
   const std::string& fair_play_certificate() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -248,7 +246,7 @@ class RemoteDeviceInfo final :
   std::string* _internal_mutable_fair_play_certificate();
   public:
 
-  // string fair_play_guid = 13;
+  // string fair_play_guid = 8;
   void clear_fair_play_guid();
   const std::string& fair_play_guid() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -262,25 +260,7 @@ class RemoteDeviceInfo final :
   std::string* _internal_mutable_fair_play_guid();
   public:
 
-  // uint32 rq_size = 1;
-  void clear_rq_size();
-  uint32_t rq_size() const;
-  void set_rq_size(uint32_t value);
-  private:
-  uint32_t _internal_rq_size() const;
-  void _internal_set_rq_size(uint32_t value);
-  public:
-
-  // uint32 rq_sig_size = 3;
-  void clear_rq_sig_size();
-  uint32_t rq_sig_size() const;
-  void set_rq_sig_size(uint32_t value);
-  private:
-  uint32_t _internal_rq_sig_size() const;
-  void _internal_set_rq_sig_size(uint32_t value);
-  public:
-
-  // uint32 grappa_session_id = 5;
+  // uint32 grappa_session_id = 3;
   void clear_grappa_session_id();
   uint32_t grappa_session_id() const;
   void set_grappa_session_id(uint32_t value);
@@ -289,25 +269,7 @@ class RemoteDeviceInfo final :
   void _internal_set_grappa_session_id(uint32_t value);
   public:
 
-  // uint32 key_fair_play_guid_length = 6;
-  void clear_key_fair_play_guid_length();
-  uint32_t key_fair_play_guid_length() const;
-  void set_key_fair_play_guid_length(uint32_t value);
-  private:
-  uint32_t _internal_key_fair_play_guid_length() const;
-  void _internal_set_key_fair_play_guid_length(uint32_t value);
-  public:
-
-  // uint32 fair_play_certificate_length = 8;
-  void clear_fair_play_certificate_length();
-  uint32_t fair_play_certificate_length() const;
-  void set_fair_play_certificate_length(uint32_t value);
-  private:
-  uint32_t _internal_fair_play_certificate_length() const;
-  void _internal_set_fair_play_certificate_length(uint32_t value);
-  public:
-
-  // uint32 private_key = 11;
+  // uint32 private_key = 7;
   void clear_private_key();
   uint32_t private_key() const;
   void set_private_key(uint32_t value);
@@ -316,7 +278,7 @@ class RemoteDeviceInfo final :
   void _internal_set_private_key(uint32_t value);
   public:
 
-  // int64 fair_device_type = 10;
+  // int64 fair_device_type = 6;
   void clear_fair_device_type();
   int64_t fair_device_type() const;
   void set_fair_device_type(int64_t value);
@@ -325,16 +287,7 @@ class RemoteDeviceInfo final :
   void _internal_set_fair_device_type(int64_t value);
   public:
 
-  // uint32 fair_play_guid_len = 12;
-  void clear_fair_play_guid_len();
-  uint32_t fair_play_guid_len() const;
-  void set_fair_play_guid_len(uint32_t value);
-  private:
-  uint32_t _internal_fair_play_guid_len() const;
-  void _internal_set_fair_play_guid_len(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:RemoteDeviceInfo)
+  // @@protoc_insertion_point(class_scope:AppleRemoteAuth.RemoteDeviceInfo)
  private:
   class _Internal;
 
@@ -347,14 +300,9 @@ class RemoteDeviceInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_fair_play_guid_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fair_play_certificate_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fair_play_guid_;
-    uint32_t rq_size_;
-    uint32_t rq_sig_size_;
     uint32_t grappa_session_id_;
-    uint32_t key_fair_play_guid_length_;
-    uint32_t fair_play_certificate_length_;
     uint32_t private_key_;
     int64_t fair_device_type_;
-    uint32_t fair_play_guid_len_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -363,7 +311,7 @@ class RemoteDeviceInfo final :
 // -------------------------------------------------------------------
 
 class rsdata final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:rsdata) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:AppleRemoteAuth.rsdata) */ {
  public:
   inline rsdata() : rsdata(nullptr) {}
   ~rsdata() override;
@@ -466,7 +414,7 @@ class rsdata final :
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "rsdata";
+    return "AppleRemoteAuth.rsdata";
   }
   protected:
   explicit rsdata(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -483,10 +431,9 @@ class rsdata final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRsDataFieldNumber = 2,
-    kRsSizeFieldNumber = 1,
+    kRsDataFieldNumber = 1,
   };
-  // bytes rs_data = 2;
+  // bytes rs_data = 1;
   void clear_rs_data();
   const std::string& rs_data() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -500,16 +447,7 @@ class rsdata final :
   std::string* _internal_mutable_rs_data();
   public:
 
-  // uint32 rs_size = 1;
-  void clear_rs_size();
-  uint32_t rs_size() const;
-  void set_rs_size(uint32_t value);
-  private:
-  uint32_t _internal_rs_size() const;
-  void _internal_set_rs_size(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:rsdata)
+  // @@protoc_insertion_point(class_scope:AppleRemoteAuth.rsdata)
  private:
   class _Internal;
 
@@ -518,7 +456,6 @@ class rsdata final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rs_data_;
-    uint32_t rs_size_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -535,32 +472,12 @@ class rsdata final :
 #endif  // __GNUC__
 // RemoteDeviceInfo
 
-// uint32 rq_size = 1;
-inline void RemoteDeviceInfo::clear_rq_size() {
-  _impl_.rq_size_ = 0u;
-}
-inline uint32_t RemoteDeviceInfo::_internal_rq_size() const {
-  return _impl_.rq_size_;
-}
-inline uint32_t RemoteDeviceInfo::rq_size() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.rq_size)
-  return _internal_rq_size();
-}
-inline void RemoteDeviceInfo::_internal_set_rq_size(uint32_t value) {
-  
-  _impl_.rq_size_ = value;
-}
-inline void RemoteDeviceInfo::set_rq_size(uint32_t value) {
-  _internal_set_rq_size(value);
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.rq_size)
-}
-
-// bytes rq_data = 2;
+// bytes rq_data = 1;
 inline void RemoteDeviceInfo::clear_rq_data() {
   _impl_.rq_data_.ClearToEmpty();
 }
 inline const std::string& RemoteDeviceInfo::rq_data() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.rq_data)
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.RemoteDeviceInfo.rq_data)
   return _internal_rq_data();
 }
 template <typename ArgT0, typename... ArgT>
@@ -568,11 +485,11 @@ inline PROTOBUF_ALWAYS_INLINE
 void RemoteDeviceInfo::set_rq_data(ArgT0&& arg0, ArgT... args) {
  
  _impl_.rq_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.rq_data)
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.rq_data)
 }
 inline std::string* RemoteDeviceInfo::mutable_rq_data() {
   std::string* _s = _internal_mutable_rq_data();
-  // @@protoc_insertion_point(field_mutable:RemoteDeviceInfo.rq_data)
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.RemoteDeviceInfo.rq_data)
   return _s;
 }
 inline const std::string& RemoteDeviceInfo::_internal_rq_data() const {
@@ -587,7 +504,7 @@ inline std::string* RemoteDeviceInfo::_internal_mutable_rq_data() {
   return _impl_.rq_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* RemoteDeviceInfo::release_rq_data() {
-  // @@protoc_insertion_point(field_release:RemoteDeviceInfo.rq_data)
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.RemoteDeviceInfo.rq_data)
   return _impl_.rq_data_.Release();
 }
 inline void RemoteDeviceInfo::set_allocated_rq_data(std::string* rq_data) {
@@ -602,35 +519,15 @@ inline void RemoteDeviceInfo::set_allocated_rq_data(std::string* rq_data) {
     _impl_.rq_data_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:RemoteDeviceInfo.rq_data)
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.RemoteDeviceInfo.rq_data)
 }
 
-// uint32 rq_sig_size = 3;
-inline void RemoteDeviceInfo::clear_rq_sig_size() {
-  _impl_.rq_sig_size_ = 0u;
-}
-inline uint32_t RemoteDeviceInfo::_internal_rq_sig_size() const {
-  return _impl_.rq_sig_size_;
-}
-inline uint32_t RemoteDeviceInfo::rq_sig_size() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.rq_sig_size)
-  return _internal_rq_sig_size();
-}
-inline void RemoteDeviceInfo::_internal_set_rq_sig_size(uint32_t value) {
-  
-  _impl_.rq_sig_size_ = value;
-}
-inline void RemoteDeviceInfo::set_rq_sig_size(uint32_t value) {
-  _internal_set_rq_sig_size(value);
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.rq_sig_size)
-}
-
-// bytes rq_sig_data = 4;
+// bytes rq_sig_data = 2;
 inline void RemoteDeviceInfo::clear_rq_sig_data() {
   _impl_.rq_sig_data_.ClearToEmpty();
 }
 inline const std::string& RemoteDeviceInfo::rq_sig_data() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.rq_sig_data)
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.RemoteDeviceInfo.rq_sig_data)
   return _internal_rq_sig_data();
 }
 template <typename ArgT0, typename... ArgT>
@@ -638,11 +535,11 @@ inline PROTOBUF_ALWAYS_INLINE
 void RemoteDeviceInfo::set_rq_sig_data(ArgT0&& arg0, ArgT... args) {
  
  _impl_.rq_sig_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.rq_sig_data)
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.rq_sig_data)
 }
 inline std::string* RemoteDeviceInfo::mutable_rq_sig_data() {
   std::string* _s = _internal_mutable_rq_sig_data();
-  // @@protoc_insertion_point(field_mutable:RemoteDeviceInfo.rq_sig_data)
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.RemoteDeviceInfo.rq_sig_data)
   return _s;
 }
 inline const std::string& RemoteDeviceInfo::_internal_rq_sig_data() const {
@@ -657,7 +554,7 @@ inline std::string* RemoteDeviceInfo::_internal_mutable_rq_sig_data() {
   return _impl_.rq_sig_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* RemoteDeviceInfo::release_rq_sig_data() {
-  // @@protoc_insertion_point(field_release:RemoteDeviceInfo.rq_sig_data)
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.RemoteDeviceInfo.rq_sig_data)
   return _impl_.rq_sig_data_.Release();
 }
 inline void RemoteDeviceInfo::set_allocated_rq_sig_data(std::string* rq_sig_data) {
@@ -672,10 +569,10 @@ inline void RemoteDeviceInfo::set_allocated_rq_sig_data(std::string* rq_sig_data
     _impl_.rq_sig_data_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:RemoteDeviceInfo.rq_sig_data)
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.RemoteDeviceInfo.rq_sig_data)
 }
 
-// uint32 grappa_session_id = 5;
+// uint32 grappa_session_id = 3;
 inline void RemoteDeviceInfo::clear_grappa_session_id() {
   _impl_.grappa_session_id_ = 0u;
 }
@@ -683,7 +580,7 @@ inline uint32_t RemoteDeviceInfo::_internal_grappa_session_id() const {
   return _impl_.grappa_session_id_;
 }
 inline uint32_t RemoteDeviceInfo::grappa_session_id() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.grappa_session_id)
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.RemoteDeviceInfo.grappa_session_id)
   return _internal_grappa_session_id();
 }
 inline void RemoteDeviceInfo::_internal_set_grappa_session_id(uint32_t value) {
@@ -692,35 +589,15 @@ inline void RemoteDeviceInfo::_internal_set_grappa_session_id(uint32_t value) {
 }
 inline void RemoteDeviceInfo::set_grappa_session_id(uint32_t value) {
   _internal_set_grappa_session_id(value);
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.grappa_session_id)
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.grappa_session_id)
 }
 
-// uint32 key_fair_play_guid_length = 6;
-inline void RemoteDeviceInfo::clear_key_fair_play_guid_length() {
-  _impl_.key_fair_play_guid_length_ = 0u;
-}
-inline uint32_t RemoteDeviceInfo::_internal_key_fair_play_guid_length() const {
-  return _impl_.key_fair_play_guid_length_;
-}
-inline uint32_t RemoteDeviceInfo::key_fair_play_guid_length() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.key_fair_play_guid_length)
-  return _internal_key_fair_play_guid_length();
-}
-inline void RemoteDeviceInfo::_internal_set_key_fair_play_guid_length(uint32_t value) {
-  
-  _impl_.key_fair_play_guid_length_ = value;
-}
-inline void RemoteDeviceInfo::set_key_fair_play_guid_length(uint32_t value) {
-  _internal_set_key_fair_play_guid_length(value);
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.key_fair_play_guid_length)
-}
-
-// bytes key_fair_play_guid = 7;
+// bytes key_fair_play_guid = 4;
 inline void RemoteDeviceInfo::clear_key_fair_play_guid() {
   _impl_.key_fair_play_guid_.ClearToEmpty();
 }
 inline const std::string& RemoteDeviceInfo::key_fair_play_guid() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.key_fair_play_guid)
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.RemoteDeviceInfo.key_fair_play_guid)
   return _internal_key_fair_play_guid();
 }
 template <typename ArgT0, typename... ArgT>
@@ -728,11 +605,11 @@ inline PROTOBUF_ALWAYS_INLINE
 void RemoteDeviceInfo::set_key_fair_play_guid(ArgT0&& arg0, ArgT... args) {
  
  _impl_.key_fair_play_guid_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.key_fair_play_guid)
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.key_fair_play_guid)
 }
 inline std::string* RemoteDeviceInfo::mutable_key_fair_play_guid() {
   std::string* _s = _internal_mutable_key_fair_play_guid();
-  // @@protoc_insertion_point(field_mutable:RemoteDeviceInfo.key_fair_play_guid)
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.RemoteDeviceInfo.key_fair_play_guid)
   return _s;
 }
 inline const std::string& RemoteDeviceInfo::_internal_key_fair_play_guid() const {
@@ -747,7 +624,7 @@ inline std::string* RemoteDeviceInfo::_internal_mutable_key_fair_play_guid() {
   return _impl_.key_fair_play_guid_.Mutable(GetArenaForAllocation());
 }
 inline std::string* RemoteDeviceInfo::release_key_fair_play_guid() {
-  // @@protoc_insertion_point(field_release:RemoteDeviceInfo.key_fair_play_guid)
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.RemoteDeviceInfo.key_fair_play_guid)
   return _impl_.key_fair_play_guid_.Release();
 }
 inline void RemoteDeviceInfo::set_allocated_key_fair_play_guid(std::string* key_fair_play_guid) {
@@ -762,35 +639,15 @@ inline void RemoteDeviceInfo::set_allocated_key_fair_play_guid(std::string* key_
     _impl_.key_fair_play_guid_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:RemoteDeviceInfo.key_fair_play_guid)
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.RemoteDeviceInfo.key_fair_play_guid)
 }
 
-// uint32 fair_play_certificate_length = 8;
-inline void RemoteDeviceInfo::clear_fair_play_certificate_length() {
-  _impl_.fair_play_certificate_length_ = 0u;
-}
-inline uint32_t RemoteDeviceInfo::_internal_fair_play_certificate_length() const {
-  return _impl_.fair_play_certificate_length_;
-}
-inline uint32_t RemoteDeviceInfo::fair_play_certificate_length() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.fair_play_certificate_length)
-  return _internal_fair_play_certificate_length();
-}
-inline void RemoteDeviceInfo::_internal_set_fair_play_certificate_length(uint32_t value) {
-  
-  _impl_.fair_play_certificate_length_ = value;
-}
-inline void RemoteDeviceInfo::set_fair_play_certificate_length(uint32_t value) {
-  _internal_set_fair_play_certificate_length(value);
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.fair_play_certificate_length)
-}
-
-// bytes fair_play_certificate = 9;
+// bytes fair_play_certificate = 5;
 inline void RemoteDeviceInfo::clear_fair_play_certificate() {
   _impl_.fair_play_certificate_.ClearToEmpty();
 }
 inline const std::string& RemoteDeviceInfo::fair_play_certificate() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.fair_play_certificate)
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.RemoteDeviceInfo.fair_play_certificate)
   return _internal_fair_play_certificate();
 }
 template <typename ArgT0, typename... ArgT>
@@ -798,11 +655,11 @@ inline PROTOBUF_ALWAYS_INLINE
 void RemoteDeviceInfo::set_fair_play_certificate(ArgT0&& arg0, ArgT... args) {
  
  _impl_.fair_play_certificate_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.fair_play_certificate)
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.fair_play_certificate)
 }
 inline std::string* RemoteDeviceInfo::mutable_fair_play_certificate() {
   std::string* _s = _internal_mutable_fair_play_certificate();
-  // @@protoc_insertion_point(field_mutable:RemoteDeviceInfo.fair_play_certificate)
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.RemoteDeviceInfo.fair_play_certificate)
   return _s;
 }
 inline const std::string& RemoteDeviceInfo::_internal_fair_play_certificate() const {
@@ -817,7 +674,7 @@ inline std::string* RemoteDeviceInfo::_internal_mutable_fair_play_certificate() 
   return _impl_.fair_play_certificate_.Mutable(GetArenaForAllocation());
 }
 inline std::string* RemoteDeviceInfo::release_fair_play_certificate() {
-  // @@protoc_insertion_point(field_release:RemoteDeviceInfo.fair_play_certificate)
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.RemoteDeviceInfo.fair_play_certificate)
   return _impl_.fair_play_certificate_.Release();
 }
 inline void RemoteDeviceInfo::set_allocated_fair_play_certificate(std::string* fair_play_certificate) {
@@ -832,10 +689,10 @@ inline void RemoteDeviceInfo::set_allocated_fair_play_certificate(std::string* f
     _impl_.fair_play_certificate_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:RemoteDeviceInfo.fair_play_certificate)
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.RemoteDeviceInfo.fair_play_certificate)
 }
 
-// int64 fair_device_type = 10;
+// int64 fair_device_type = 6;
 inline void RemoteDeviceInfo::clear_fair_device_type() {
   _impl_.fair_device_type_ = int64_t{0};
 }
@@ -843,7 +700,7 @@ inline int64_t RemoteDeviceInfo::_internal_fair_device_type() const {
   return _impl_.fair_device_type_;
 }
 inline int64_t RemoteDeviceInfo::fair_device_type() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.fair_device_type)
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.RemoteDeviceInfo.fair_device_type)
   return _internal_fair_device_type();
 }
 inline void RemoteDeviceInfo::_internal_set_fair_device_type(int64_t value) {
@@ -852,10 +709,10 @@ inline void RemoteDeviceInfo::_internal_set_fair_device_type(int64_t value) {
 }
 inline void RemoteDeviceInfo::set_fair_device_type(int64_t value) {
   _internal_set_fair_device_type(value);
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.fair_device_type)
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.fair_device_type)
 }
 
-// uint32 private_key = 11;
+// uint32 private_key = 7;
 inline void RemoteDeviceInfo::clear_private_key() {
   _impl_.private_key_ = 0u;
 }
@@ -863,7 +720,7 @@ inline uint32_t RemoteDeviceInfo::_internal_private_key() const {
   return _impl_.private_key_;
 }
 inline uint32_t RemoteDeviceInfo::private_key() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.private_key)
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.RemoteDeviceInfo.private_key)
   return _internal_private_key();
 }
 inline void RemoteDeviceInfo::_internal_set_private_key(uint32_t value) {
@@ -872,35 +729,15 @@ inline void RemoteDeviceInfo::_internal_set_private_key(uint32_t value) {
 }
 inline void RemoteDeviceInfo::set_private_key(uint32_t value) {
   _internal_set_private_key(value);
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.private_key)
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.private_key)
 }
 
-// uint32 fair_play_guid_len = 12;
-inline void RemoteDeviceInfo::clear_fair_play_guid_len() {
-  _impl_.fair_play_guid_len_ = 0u;
-}
-inline uint32_t RemoteDeviceInfo::_internal_fair_play_guid_len() const {
-  return _impl_.fair_play_guid_len_;
-}
-inline uint32_t RemoteDeviceInfo::fair_play_guid_len() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.fair_play_guid_len)
-  return _internal_fair_play_guid_len();
-}
-inline void RemoteDeviceInfo::_internal_set_fair_play_guid_len(uint32_t value) {
-  
-  _impl_.fair_play_guid_len_ = value;
-}
-inline void RemoteDeviceInfo::set_fair_play_guid_len(uint32_t value) {
-  _internal_set_fair_play_guid_len(value);
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.fair_play_guid_len)
-}
-
-// string fair_play_guid = 13;
+// string fair_play_guid = 8;
 inline void RemoteDeviceInfo::clear_fair_play_guid() {
   _impl_.fair_play_guid_.ClearToEmpty();
 }
 inline const std::string& RemoteDeviceInfo::fair_play_guid() const {
-  // @@protoc_insertion_point(field_get:RemoteDeviceInfo.fair_play_guid)
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.RemoteDeviceInfo.fair_play_guid)
   return _internal_fair_play_guid();
 }
 template <typename ArgT0, typename... ArgT>
@@ -908,11 +745,11 @@ inline PROTOBUF_ALWAYS_INLINE
 void RemoteDeviceInfo::set_fair_play_guid(ArgT0&& arg0, ArgT... args) {
  
  _impl_.fair_play_guid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:RemoteDeviceInfo.fair_play_guid)
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.fair_play_guid)
 }
 inline std::string* RemoteDeviceInfo::mutable_fair_play_guid() {
   std::string* _s = _internal_mutable_fair_play_guid();
-  // @@protoc_insertion_point(field_mutable:RemoteDeviceInfo.fair_play_guid)
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.RemoteDeviceInfo.fair_play_guid)
   return _s;
 }
 inline const std::string& RemoteDeviceInfo::_internal_fair_play_guid() const {
@@ -927,7 +764,7 @@ inline std::string* RemoteDeviceInfo::_internal_mutable_fair_play_guid() {
   return _impl_.fair_play_guid_.Mutable(GetArenaForAllocation());
 }
 inline std::string* RemoteDeviceInfo::release_fair_play_guid() {
-  // @@protoc_insertion_point(field_release:RemoteDeviceInfo.fair_play_guid)
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.RemoteDeviceInfo.fair_play_guid)
   return _impl_.fair_play_guid_.Release();
 }
 inline void RemoteDeviceInfo::set_allocated_fair_play_guid(std::string* fair_play_guid) {
@@ -942,39 +779,19 @@ inline void RemoteDeviceInfo::set_allocated_fair_play_guid(std::string* fair_pla
     _impl_.fair_play_guid_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:RemoteDeviceInfo.fair_play_guid)
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.RemoteDeviceInfo.fair_play_guid)
 }
 
 // -------------------------------------------------------------------
 
 // rsdata
 
-// uint32 rs_size = 1;
-inline void rsdata::clear_rs_size() {
-  _impl_.rs_size_ = 0u;
-}
-inline uint32_t rsdata::_internal_rs_size() const {
-  return _impl_.rs_size_;
-}
-inline uint32_t rsdata::rs_size() const {
-  // @@protoc_insertion_point(field_get:rsdata.rs_size)
-  return _internal_rs_size();
-}
-inline void rsdata::_internal_set_rs_size(uint32_t value) {
-  
-  _impl_.rs_size_ = value;
-}
-inline void rsdata::set_rs_size(uint32_t value) {
-  _internal_set_rs_size(value);
-  // @@protoc_insertion_point(field_set:rsdata.rs_size)
-}
-
-// bytes rs_data = 2;
+// bytes rs_data = 1;
 inline void rsdata::clear_rs_data() {
   _impl_.rs_data_.ClearToEmpty();
 }
 inline const std::string& rsdata::rs_data() const {
-  // @@protoc_insertion_point(field_get:rsdata.rs_data)
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.rsdata.rs_data)
   return _internal_rs_data();
 }
 template <typename ArgT0, typename... ArgT>
@@ -982,11 +799,11 @@ inline PROTOBUF_ALWAYS_INLINE
 void rsdata::set_rs_data(ArgT0&& arg0, ArgT... args) {
  
  _impl_.rs_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:rsdata.rs_data)
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.rsdata.rs_data)
 }
 inline std::string* rsdata::mutable_rs_data() {
   std::string* _s = _internal_mutable_rs_data();
-  // @@protoc_insertion_point(field_mutable:rsdata.rs_data)
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.rsdata.rs_data)
   return _s;
 }
 inline const std::string& rsdata::_internal_rs_data() const {
@@ -1001,7 +818,7 @@ inline std::string* rsdata::_internal_mutable_rs_data() {
   return _impl_.rs_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* rsdata::release_rs_data() {
-  // @@protoc_insertion_point(field_release:rsdata.rs_data)
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.rsdata.rs_data)
   return _impl_.rs_data_.Release();
 }
 inline void rsdata::set_allocated_rs_data(std::string* rs_data) {
@@ -1016,7 +833,7 @@ inline void rsdata::set_allocated_rs_data(std::string* rs_data) {
     _impl_.rs_data_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:rsdata.rs_data)
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.rsdata.rs_data)
 }
 
 #ifdef __GNUC__
@@ -1027,6 +844,7 @@ inline void rsdata::set_allocated_rs_data(std::string* rs_data) {
 
 // @@protoc_insertion_point(namespace_scope)
 
+}  // namespace AppleRemoteAuth
 
 // @@protoc_insertion_point(global_scope)
 
