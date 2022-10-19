@@ -84,6 +84,7 @@ GPB_FINAL @interface RemoteDeviceInfo : GPBMessage
 
 typedef GPB_ENUM(rsdata_FieldNumber) {
   rsdata_FieldNumber_RsData = 1,
+  rsdata_FieldNumber_Ret = 2,
 };
 
 /**
@@ -92,6 +93,8 @@ typedef GPB_ENUM(rsdata_FieldNumber) {
 GPB_FINAL @interface rsdata : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *rsData;
+
+@property(nonatomic, readwrite) BOOL ret;
 
 @end
 

@@ -1108,6 +1108,12 @@ public final class GenerateRS {
      * @return The rsData.
      */
     com.google.protobuf.ByteString getRsData();
+
+    /**
+     * <code>bool ret = 2;</code>
+     * @return The ret.
+     */
+    boolean getRet();
   }
   /**
    * <pre>
@@ -1164,6 +1170,11 @@ public final class GenerateRS {
               rsData_ = input.readBytes();
               break;
             }
+            case 16: {
+
+              ret_ = input.readBool();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1209,6 +1220,17 @@ public final class GenerateRS {
       return rsData_;
     }
 
+    public static final int RET_FIELD_NUMBER = 2;
+    private boolean ret_;
+    /**
+     * <code>bool ret = 2;</code>
+     * @return The ret.
+     */
+    @java.lang.Override
+    public boolean getRet() {
+      return ret_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1226,6 +1248,9 @@ public final class GenerateRS {
       if (!rsData_.isEmpty()) {
         output.writeBytes(1, rsData_);
       }
+      if (ret_ != false) {
+        output.writeBool(2, ret_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1238,6 +1263,10 @@ public final class GenerateRS {
       if (!rsData_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, rsData_);
+      }
+      if (ret_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, ret_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1256,6 +1285,8 @@ public final class GenerateRS {
 
       if (!getRsData()
           .equals(other.getRsData())) return false;
+      if (getRet()
+          != other.getRet()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1269,6 +1300,9 @@ public final class GenerateRS {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + RS_DATA_FIELD_NUMBER;
       hash = (53 * hash) + getRsData().hashCode();
+      hash = (37 * hash) + RET_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getRet());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1408,6 +1442,8 @@ public final class GenerateRS {
         super.clear();
         rsData_ = com.google.protobuf.ByteString.EMPTY;
 
+        ret_ = false;
+
         return this;
       }
 
@@ -1435,6 +1471,7 @@ public final class GenerateRS {
       public AppleRemoteAuth.GenerateRS.rsdata buildPartial() {
         AppleRemoteAuth.GenerateRS.rsdata result = new AppleRemoteAuth.GenerateRS.rsdata(this);
         result.rsData_ = rsData_;
+        result.ret_ = ret_;
         onBuilt();
         return result;
       }
@@ -1485,6 +1522,9 @@ public final class GenerateRS {
         if (other == AppleRemoteAuth.GenerateRS.rsdata.getDefaultInstance()) return this;
         if (other.getRsData() != com.google.protobuf.ByteString.EMPTY) {
           setRsData(other.getRsData());
+        }
+        if (other.getRet() != false) {
+          setRet(other.getRet());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1545,6 +1585,37 @@ public final class GenerateRS {
       public Builder clearRsData() {
         
         rsData_ = getDefaultInstance().getRsData();
+        onChanged();
+        return this;
+      }
+
+      private boolean ret_ ;
+      /**
+       * <code>bool ret = 2;</code>
+       * @return The ret.
+       */
+      @java.lang.Override
+      public boolean getRet() {
+        return ret_;
+      }
+      /**
+       * <code>bool ret = 2;</code>
+       * @param value The ret to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRet(boolean value) {
+        
+        ret_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool ret = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRet() {
+        
+        ret_ = false;
         onChanged();
         return this;
       }
@@ -1626,10 +1697,10 @@ public final class GenerateRS {
       "\r\022\032\n\022key_fair_play_guid\030\004 \001(\014\022\035\n\025fair_pl" +
       "ay_certificate\030\005 \001(\014\022\030\n\020fair_device_type" +
       "\030\006 \001(\003\022\023\n\013private_key\030\007 \001(\r\022\026\n\016fair_play" +
-      "_guid\030\010 \001(\t\"\031\n\006rsdata\022\017\n\007rs_data\030\001 \001(\0142Q" +
-      "\n\003aid\022J\n\nGenerateRS\022!.AppleRemoteAuth.Re" +
-      "moteDeviceInfo\032\027.AppleRemoteAuth.rsdata\"" +
-      "\000b\006proto3"
+      "_guid\030\010 \001(\t\"&\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013" +
+      "\n\003ret\030\002 \001(\0102Q\n\003aid\022J\n\nGenerateRS\022!.Apple" +
+      "RemoteAuth.RemoteDeviceInfo\032\027.AppleRemot" +
+      "eAuth.rsdata\"\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1646,7 +1717,7 @@ public final class GenerateRS {
     internal_static_AppleRemoteAuth_rsdata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AppleRemoteAuth_rsdata_descriptor,
-        new java.lang.String[] { "RsData", });
+        new java.lang.String[] { "RsData", "Ret", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

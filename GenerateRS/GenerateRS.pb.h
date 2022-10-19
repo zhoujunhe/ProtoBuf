@@ -432,6 +432,7 @@ class rsdata final :
 
   enum : int {
     kRsDataFieldNumber = 1,
+    kRetFieldNumber = 2,
   };
   // bytes rs_data = 1;
   void clear_rs_data();
@@ -447,6 +448,15 @@ class rsdata final :
   std::string* _internal_mutable_rs_data();
   public:
 
+  // bool ret = 2;
+  void clear_ret();
+  bool ret() const;
+  void set_ret(bool value);
+  private:
+  bool _internal_ret() const;
+  void _internal_set_ret(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:AppleRemoteAuth.rsdata)
  private:
   class _Internal;
@@ -456,6 +466,7 @@ class rsdata final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rs_data_;
+    bool ret_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -834,6 +845,26 @@ inline void rsdata::set_allocated_rs_data(std::string* rs_data) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.rsdata.rs_data)
+}
+
+// bool ret = 2;
+inline void rsdata::clear_ret() {
+  _impl_.ret_ = false;
+}
+inline bool rsdata::_internal_ret() const {
+  return _impl_.ret_;
+}
+inline bool rsdata::ret() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.rsdata.ret)
+  return _internal_ret();
+}
+inline void rsdata::_internal_set_ret(bool value) {
+  
+  _impl_.ret_ = value;
+}
+inline void rsdata::set_ret(bool value) {
+  _internal_set_ret(value);
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.rsdata.ret)
 }
 
 #ifdef __GNUC__

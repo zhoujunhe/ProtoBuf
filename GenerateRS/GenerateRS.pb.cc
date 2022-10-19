@@ -44,6 +44,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR rsdata::rsdata(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.rs_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.ret_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct rsdataDefaultTypeInternal {
   PROTOBUF_CONSTEXPR rsdataDefaultTypeInternal()
@@ -81,6 +82,7 @@ const uint32_t TableStruct_GenerateRS_2eproto::offsets[] PROTOBUF_SECTION_VARIAB
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::rsdata, _impl_.rs_data_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::rsdata, _impl_.ret_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::AppleRemoteAuth::RemoteDeviceInfo)},
@@ -99,14 +101,14 @@ const char descriptor_table_protodef_GenerateRS_2eproto[] PROTOBUF_SECTION_VARIA
   "\r\022\032\n\022key_fair_play_guid\030\004 \001(\014\022\035\n\025fair_pl"
   "ay_certificate\030\005 \001(\014\022\030\n\020fair_device_type"
   "\030\006 \001(\003\022\023\n\013private_key\030\007 \001(\r\022\026\n\016fair_play"
-  "_guid\030\010 \001(\t\"\031\n\006rsdata\022\017\n\007rs_data\030\001 \001(\0142Q"
-  "\n\003aid\022J\n\nGenerateRS\022!.AppleRemoteAuth.Re"
-  "moteDeviceInfo\032\027.AppleRemoteAuth.rsdata\""
-  "\000b\006proto3"
+  "_guid\030\010 \001(\t\"&\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013"
+  "\n\003ret\030\002 \001(\0102Q\n\003aid\022J\n\nGenerateRS\022!.Apple"
+  "RemoteAuth.RemoteDeviceInfo\032\027.AppleRemot"
+  "eAuth.rsdata\"\000b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_GenerateRS_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_GenerateRS_2eproto = {
-    false, false, 369, descriptor_table_protodef_GenerateRS_2eproto,
+    false, false, 382, descriptor_table_protodef_GenerateRS_2eproto,
     "GenerateRS.proto",
     &descriptor_table_GenerateRS_2eproto_once, nullptr, 0, 2,
     schemas, file_default_instances, TableStruct_GenerateRS_2eproto::offsets,
@@ -605,6 +607,7 @@ rsdata::rsdata(const rsdata& from)
   rsdata* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.rs_data_){}
+    , decltype(_impl_.ret_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -616,6 +619,7 @@ rsdata::rsdata(const rsdata& from)
     _this->_impl_.rs_data_.Set(from._internal_rs_data(), 
       _this->GetArenaForAllocation());
   }
+  _this->_impl_.ret_ = from._impl_.ret_;
   // @@protoc_insertion_point(copy_constructor:AppleRemoteAuth.rsdata)
 }
 
@@ -625,6 +629,7 @@ inline void rsdata::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.rs_data_){}
+    , decltype(_impl_.ret_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.rs_data_.InitDefault();
@@ -658,6 +663,7 @@ void rsdata::Clear() {
   (void) cached_has_bits;
 
   _impl_.rs_data_.ClearToEmpty();
+  _impl_.ret_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -672,6 +678,14 @@ const char* rsdata::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_rs_data();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool ret = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.ret_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -711,6 +725,12 @@ uint8_t* rsdata::_InternalSerialize(
         1, this->_internal_rs_data(), target);
   }
 
+  // bool ret = 2;
+  if (this->_internal_ret() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_ret(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -734,6 +754,11 @@ size_t rsdata::ByteSizeLong() const {
         this->_internal_rs_data());
   }
 
+  // bool ret = 2;
+  if (this->_internal_ret() != 0) {
+    total_size += 1 + 1;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -754,6 +779,9 @@ void rsdata::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBU
 
   if (!from._internal_rs_data().empty()) {
     _this->_internal_set_rs_data(from._internal_rs_data());
+  }
+  if (from._internal_ret() != 0) {
+    _this->_internal_set_ret(from._internal_ret());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -778,6 +806,7 @@ void rsdata::InternalSwap(rsdata* other) {
       &_impl_.rs_data_, lhs_arena,
       &other->_impl_.rs_data_, rhs_arena
   );
+  swap(_impl_.ret_, other->_impl_.ret_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata rsdata::GetMetadata() const {

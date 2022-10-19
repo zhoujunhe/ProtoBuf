@@ -36,4 +36,5 @@ message RemoteDeviceInfo {
 // The response message 
 message rsdata {
   bytes rs_data = 1;
+  bool ret = 2;
 }
