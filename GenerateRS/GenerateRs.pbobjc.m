@@ -170,10 +170,12 @@ typedef struct RemoteDeviceInfo__storage_ {
 
 @dynamic rsData;
 @dynamic ret;
+@dynamic rsSigData;
 
 typedef struct rsdata__storage_ {
   uint32_t _has_storage_[1];
   NSData *rsData;
+  NSData *rsSigData;
 } rsdata__storage_;
 
 // This method is threadsafe because it is initially called
@@ -199,6 +201,15 @@ typedef struct rsdata__storage_ {
         .offset = 2,  // Stored in _has_storage_ to save space.
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
+      },
+      {
+        .name = "rsSigData",
+        .dataTypeSpecific.clazz = Nil,
+        .number = rsdata_FieldNumber_RsSigData,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(rsdata__storage_, rsSigData),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBytes,
       },
     };
     GPBDescriptor *localDescriptor =

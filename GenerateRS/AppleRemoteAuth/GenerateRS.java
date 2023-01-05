@@ -1114,6 +1114,12 @@ public final class GenerateRS {
      * @return The ret.
      */
     boolean getRet();
+
+    /**
+     * <code>bytes rs_sig_data = 3;</code>
+     * @return The rsSigData.
+     */
+    com.google.protobuf.ByteString getRsSigData();
   }
   /**
    * <pre>
@@ -1133,6 +1139,7 @@ public final class GenerateRS {
     }
     private rsdata() {
       rsData_ = com.google.protobuf.ByteString.EMPTY;
+      rsSigData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -1173,6 +1180,11 @@ public final class GenerateRS {
             case 16: {
 
               ret_ = input.readBool();
+              break;
+            }
+            case 26: {
+
+              rsSigData_ = input.readBytes();
               break;
             }
             default: {
@@ -1231,6 +1243,17 @@ public final class GenerateRS {
       return ret_;
     }
 
+    public static final int RS_SIG_DATA_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString rsSigData_;
+    /**
+     * <code>bytes rs_sig_data = 3;</code>
+     * @return The rsSigData.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getRsSigData() {
+      return rsSigData_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1251,6 +1274,9 @@ public final class GenerateRS {
       if (ret_ != false) {
         output.writeBool(2, ret_);
       }
+      if (!rsSigData_.isEmpty()) {
+        output.writeBytes(3, rsSigData_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1267,6 +1293,10 @@ public final class GenerateRS {
       if (ret_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, ret_);
+      }
+      if (!rsSigData_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, rsSigData_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1287,6 +1317,8 @@ public final class GenerateRS {
           .equals(other.getRsData())) return false;
       if (getRet()
           != other.getRet()) return false;
+      if (!getRsSigData()
+          .equals(other.getRsSigData())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1303,6 +1335,8 @@ public final class GenerateRS {
       hash = (37 * hash) + RET_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getRet());
+      hash = (37 * hash) + RS_SIG_DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getRsSigData().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1444,6 +1478,8 @@ public final class GenerateRS {
 
         ret_ = false;
 
+        rsSigData_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -1472,6 +1508,7 @@ public final class GenerateRS {
         AppleRemoteAuth.GenerateRS.rsdata result = new AppleRemoteAuth.GenerateRS.rsdata(this);
         result.rsData_ = rsData_;
         result.ret_ = ret_;
+        result.rsSigData_ = rsSigData_;
         onBuilt();
         return result;
       }
@@ -1525,6 +1562,9 @@ public final class GenerateRS {
         }
         if (other.getRet() != false) {
           setRet(other.getRet());
+        }
+        if (other.getRsSigData() != com.google.protobuf.ByteString.EMPTY) {
+          setRsSigData(other.getRsSigData());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1619,6 +1659,40 @@ public final class GenerateRS {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.ByteString rsSigData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes rs_sig_data = 3;</code>
+       * @return The rsSigData.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getRsSigData() {
+        return rsSigData_;
+      }
+      /**
+       * <code>bytes rs_sig_data = 3;</code>
+       * @param value The rsSigData to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRsSigData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        rsSigData_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes rs_sig_data = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRsSigData() {
+        
+        rsSigData_ = getDefaultInstance().getRsSigData();
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1697,10 +1771,11 @@ public final class GenerateRS {
       "\r\022\032\n\022key_fair_play_guid\030\004 \001(\014\022\035\n\025fair_pl" +
       "ay_certificate\030\005 \001(\014\022\030\n\020fair_device_type" +
       "\030\006 \001(\003\022\023\n\013private_key\030\007 \001(\r\022\026\n\016fair_play" +
-      "_guid\030\010 \001(\t\"&\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013" +
-      "\n\003ret\030\002 \001(\0102Q\n\003aid\022J\n\nGenerateRS\022!.Apple" +
-      "RemoteAuth.RemoteDeviceInfo\032\027.AppleRemot" +
-      "eAuth.rsdata\"\000b\006proto3"
+      "_guid\030\010 \001(\t\";\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013" +
+      "\n\003ret\030\002 \001(\010\022\023\n\013rs_sig_data\030\003 \001(\0142Q\n\003aid\022" +
+      "J\n\nGenerateRS\022!.AppleRemoteAuth.RemoteDe" +
+      "viceInfo\032\027.AppleRemoteAuth.rsdata\"\000b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1717,7 +1792,7 @@ public final class GenerateRS {
     internal_static_AppleRemoteAuth_rsdata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AppleRemoteAuth_rsdata_descriptor,
-        new java.lang.String[] { "RsData", "Ret", });
+        new java.lang.String[] { "RsData", "Ret", "RsSigData", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

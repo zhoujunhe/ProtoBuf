@@ -432,6 +432,7 @@ class rsdata final :
 
   enum : int {
     kRsDataFieldNumber = 1,
+    kRsSigDataFieldNumber = 3,
     kRetFieldNumber = 2,
   };
   // bytes rs_data = 1;
@@ -446,6 +447,20 @@ class rsdata final :
   const std::string& _internal_rs_data() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_rs_data(const std::string& value);
   std::string* _internal_mutable_rs_data();
+  public:
+
+  // bytes rs_sig_data = 3;
+  void clear_rs_sig_data();
+  const std::string& rs_sig_data() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_rs_sig_data(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_rs_sig_data();
+  PROTOBUF_NODISCARD std::string* release_rs_sig_data();
+  void set_allocated_rs_sig_data(std::string* rs_sig_data);
+  private:
+  const std::string& _internal_rs_sig_data() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_rs_sig_data(const std::string& value);
+  std::string* _internal_mutable_rs_sig_data();
   public:
 
   // bool ret = 2;
@@ -466,6 +481,7 @@ class rsdata final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rs_data_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rs_sig_data_;
     bool ret_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -865,6 +881,56 @@ inline void rsdata::_internal_set_ret(bool value) {
 inline void rsdata::set_ret(bool value) {
   _internal_set_ret(value);
   // @@protoc_insertion_point(field_set:AppleRemoteAuth.rsdata.ret)
+}
+
+// bytes rs_sig_data = 3;
+inline void rsdata::clear_rs_sig_data() {
+  _impl_.rs_sig_data_.ClearToEmpty();
+}
+inline const std::string& rsdata::rs_sig_data() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.rsdata.rs_sig_data)
+  return _internal_rs_sig_data();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void rsdata::set_rs_sig_data(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.rs_sig_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.rsdata.rs_sig_data)
+}
+inline std::string* rsdata::mutable_rs_sig_data() {
+  std::string* _s = _internal_mutable_rs_sig_data();
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.rsdata.rs_sig_data)
+  return _s;
+}
+inline const std::string& rsdata::_internal_rs_sig_data() const {
+  return _impl_.rs_sig_data_.Get();
+}
+inline void rsdata::_internal_set_rs_sig_data(const std::string& value) {
+  
+  _impl_.rs_sig_data_.Set(value, GetArenaForAllocation());
+}
+inline std::string* rsdata::_internal_mutable_rs_sig_data() {
+  
+  return _impl_.rs_sig_data_.Mutable(GetArenaForAllocation());
+}
+inline std::string* rsdata::release_rs_sig_data() {
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.rsdata.rs_sig_data)
+  return _impl_.rs_sig_data_.Release();
+}
+inline void rsdata::set_allocated_rs_sig_data(std::string* rs_sig_data) {
+  if (rs_sig_data != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.rs_sig_data_.SetAllocated(rs_sig_data, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.rs_sig_data_.IsDefault()) {
+    _impl_.rs_sig_data_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.rsdata.rs_sig_data)
 }
 
 #ifdef __GNUC__

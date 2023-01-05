@@ -18,6 +18,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "AppleRemoteAuth.rsdata" do
       optional :rs_data, :bytes, 1
       optional :ret, :bool, 2
+      optional :rs_sig_data, :bytes, 3
     end
   end
 end
