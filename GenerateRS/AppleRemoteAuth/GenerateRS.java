@@ -1116,7 +1116,12 @@ public final class GenerateRS {
     boolean getRet();
 
     /**
-     * <code>bytes rs_sig_data = 3;</code>
+     * <code>optional bytes rs_sig_data = 3;</code>
+     * @return Whether the rsSigData field is set.
+     */
+    boolean hasRsSigData();
+    /**
+     * <code>optional bytes rs_sig_data = 3;</code>
      * @return The rsSigData.
      */
     com.google.protobuf.ByteString getRsSigData();
@@ -1162,6 +1167,7 @@ public final class GenerateRS {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1183,7 +1189,7 @@ public final class GenerateRS {
               break;
             }
             case 26: {
-
+              bitField0_ |= 0x00000001;
               rsSigData_ = input.readBytes();
               break;
             }
@@ -1221,6 +1227,7 @@ public final class GenerateRS {
               AppleRemoteAuth.GenerateRS.rsdata.class, AppleRemoteAuth.GenerateRS.rsdata.Builder.class);
     }
 
+    private int bitField0_;
     public static final int RS_DATA_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString rsData_;
     /**
@@ -1246,7 +1253,15 @@ public final class GenerateRS {
     public static final int RS_SIG_DATA_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString rsSigData_;
     /**
-     * <code>bytes rs_sig_data = 3;</code>
+     * <code>optional bytes rs_sig_data = 3;</code>
+     * @return Whether the rsSigData field is set.
+     */
+    @java.lang.Override
+    public boolean hasRsSigData() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional bytes rs_sig_data = 3;</code>
      * @return The rsSigData.
      */
     @java.lang.Override
@@ -1274,7 +1289,7 @@ public final class GenerateRS {
       if (ret_ != false) {
         output.writeBool(2, ret_);
       }
-      if (!rsSigData_.isEmpty()) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeBytes(3, rsSigData_);
       }
       unknownFields.writeTo(output);
@@ -1294,7 +1309,7 @@ public final class GenerateRS {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, ret_);
       }
-      if (!rsSigData_.isEmpty()) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, rsSigData_);
       }
@@ -1317,8 +1332,11 @@ public final class GenerateRS {
           .equals(other.getRsData())) return false;
       if (getRet()
           != other.getRet()) return false;
-      if (!getRsSigData()
-          .equals(other.getRsSigData())) return false;
+      if (hasRsSigData() != other.hasRsSigData()) return false;
+      if (hasRsSigData()) {
+        if (!getRsSigData()
+            .equals(other.getRsSigData())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1335,8 +1353,10 @@ public final class GenerateRS {
       hash = (37 * hash) + RET_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getRet());
-      hash = (37 * hash) + RS_SIG_DATA_FIELD_NUMBER;
-      hash = (53 * hash) + getRsSigData().hashCode();
+      if (hasRsSigData()) {
+        hash = (37 * hash) + RS_SIG_DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getRsSigData().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1479,7 +1499,7 @@ public final class GenerateRS {
         ret_ = false;
 
         rsSigData_ = com.google.protobuf.ByteString.EMPTY;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1506,9 +1526,15 @@ public final class GenerateRS {
       @java.lang.Override
       public AppleRemoteAuth.GenerateRS.rsdata buildPartial() {
         AppleRemoteAuth.GenerateRS.rsdata result = new AppleRemoteAuth.GenerateRS.rsdata(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.rsData_ = rsData_;
         result.ret_ = ret_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.rsSigData_ = rsSigData_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1563,7 +1589,7 @@ public final class GenerateRS {
         if (other.getRet() != false) {
           setRet(other.getRet());
         }
-        if (other.getRsSigData() != com.google.protobuf.ByteString.EMPTY) {
+        if (other.hasRsSigData()) {
           setRsSigData(other.getRsSigData());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1594,6 +1620,7 @@ public final class GenerateRS {
         }
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.ByteString rsData_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -1662,7 +1689,15 @@ public final class GenerateRS {
 
       private com.google.protobuf.ByteString rsSigData_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes rs_sig_data = 3;</code>
+       * <code>optional bytes rs_sig_data = 3;</code>
+       * @return Whether the rsSigData field is set.
+       */
+      @java.lang.Override
+      public boolean hasRsSigData() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional bytes rs_sig_data = 3;</code>
        * @return The rsSigData.
        */
       @java.lang.Override
@@ -1670,7 +1705,7 @@ public final class GenerateRS {
         return rsSigData_;
       }
       /**
-       * <code>bytes rs_sig_data = 3;</code>
+       * <code>optional bytes rs_sig_data = 3;</code>
        * @param value The rsSigData to set.
        * @return This builder for chaining.
        */
@@ -1678,17 +1713,17 @@ public final class GenerateRS {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000001;
         rsSigData_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes rs_sig_data = 3;</code>
+       * <code>optional bytes rs_sig_data = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearRsSigData() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         rsSigData_ = getDefaultInstance().getRsSigData();
         onChanged();
         return this;
@@ -1771,11 +1806,11 @@ public final class GenerateRS {
       "\r\022\032\n\022key_fair_play_guid\030\004 \001(\014\022\035\n\025fair_pl" +
       "ay_certificate\030\005 \001(\014\022\030\n\020fair_device_type" +
       "\030\006 \001(\003\022\023\n\013private_key\030\007 \001(\r\022\026\n\016fair_play" +
-      "_guid\030\010 \001(\t\";\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013" +
-      "\n\003ret\030\002 \001(\010\022\023\n\013rs_sig_data\030\003 \001(\0142Q\n\003aid\022" +
-      "J\n\nGenerateRS\022!.AppleRemoteAuth.RemoteDe" +
-      "viceInfo\032\027.AppleRemoteAuth.rsdata\"\000b\006pro" +
-      "to3"
+      "_guid\030\010 \001(\t\"P\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013" +
+      "\n\003ret\030\002 \001(\010\022\030\n\013rs_sig_data\030\003 \001(\014H\000\210\001\001B\016\n" +
+      "\014_rs_sig_data2Q\n\003aid\022J\n\nGenerateRS\022!.App" +
+      "leRemoteAuth.RemoteDeviceInfo\032\027.AppleRem" +
+      "oteAuth.rsdata\"\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1792,7 +1827,7 @@ public final class GenerateRS {
     internal_static_AppleRemoteAuth_rsdata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AppleRemoteAuth_rsdata_descriptor,
-        new java.lang.String[] { "RsData", "Ret", "RsSigData", });
+        new java.lang.String[] { "RsData", "Ret", "RsSigData", "RsSigData", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

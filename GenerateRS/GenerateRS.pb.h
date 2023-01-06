@@ -449,7 +449,11 @@ class rsdata final :
   std::string* _internal_mutable_rs_data();
   public:
 
-  // bytes rs_sig_data = 3;
+  // optional bytes rs_sig_data = 3;
+  bool has_rs_sig_data() const;
+  private:
+  bool _internal_has_rs_sig_data() const;
+  public:
   void clear_rs_sig_data();
   const std::string& rs_sig_data() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -480,10 +484,11 @@ class rsdata final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rs_data_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rs_sig_data_;
     bool ret_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_GenerateRS_2eproto;
@@ -883,9 +888,17 @@ inline void rsdata::set_ret(bool value) {
   // @@protoc_insertion_point(field_set:AppleRemoteAuth.rsdata.ret)
 }
 
-// bytes rs_sig_data = 3;
+// optional bytes rs_sig_data = 3;
+inline bool rsdata::_internal_has_rs_sig_data() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool rsdata::has_rs_sig_data() const {
+  return _internal_has_rs_sig_data();
+}
 inline void rsdata::clear_rs_sig_data() {
   _impl_.rs_sig_data_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline const std::string& rsdata::rs_sig_data() const {
   // @@protoc_insertion_point(field_get:AppleRemoteAuth.rsdata.rs_sig_data)
@@ -894,7 +907,7 @@ inline const std::string& rsdata::rs_sig_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void rsdata::set_rs_sig_data(ArgT0&& arg0, ArgT... args) {
- 
+ _impl_._has_bits_[0] |= 0x00000001u;
  _impl_.rs_sig_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:AppleRemoteAuth.rsdata.rs_sig_data)
 }
@@ -907,22 +920,32 @@ inline const std::string& rsdata::_internal_rs_sig_data() const {
   return _impl_.rs_sig_data_.Get();
 }
 inline void rsdata::_internal_set_rs_sig_data(const std::string& value) {
-  
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.rs_sig_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* rsdata::_internal_mutable_rs_sig_data() {
-  
+  _impl_._has_bits_[0] |= 0x00000001u;
   return _impl_.rs_sig_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* rsdata::release_rs_sig_data() {
   // @@protoc_insertion_point(field_release:AppleRemoteAuth.rsdata.rs_sig_data)
-  return _impl_.rs_sig_data_.Release();
+  if (!_internal_has_rs_sig_data()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.rs_sig_data_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.rs_sig_data_.IsDefault()) {
+    _impl_.rs_sig_data_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
 }
 inline void rsdata::set_allocated_rs_sig_data(std::string* rs_sig_data) {
   if (rs_sig_data != nullptr) {
-    
+    _impl_._has_bits_[0] |= 0x00000001u;
   } else {
-    
+    _impl_._has_bits_[0] &= ~0x00000001u;
   }
   _impl_.rs_sig_data_.SetAllocated(rs_sig_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING

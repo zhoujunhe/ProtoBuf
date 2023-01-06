@@ -98,6 +98,8 @@ GPB_FINAL @interface rsdata : GPBMessage
 @property(nonatomic, readwrite) BOOL ret;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *rsSigData;
+/** Test to see if @c rsSigData has been set. */
+@property(nonatomic, readwrite) BOOL hasRsSigData;
 
 @end
 

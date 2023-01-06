@@ -29,15 +29,16 @@ namespace AppleRemoteAuth {
             "IAEoDBIZChFncmFwcGFfc2Vzc2lvbl9pZBgDIAEoDRIaChJrZXlfZmFpcl9w",
             "bGF5X2d1aWQYBCABKAwSHQoVZmFpcl9wbGF5X2NlcnRpZmljYXRlGAUgASgM",
             "EhgKEGZhaXJfZGV2aWNlX3R5cGUYBiABKAMSEwoLcHJpdmF0ZV9rZXkYByAB",
-            "KA0SFgoOZmFpcl9wbGF5X2d1aWQYCCABKAkiOwoGcnNkYXRhEg8KB3JzX2Rh",
-            "dGEYASABKAwSCwoDcmV0GAIgASgIEhMKC3JzX3NpZ19kYXRhGAMgASgMMlEK",
-            "A2FpZBJKCgpHZW5lcmF0ZVJTEiEuQXBwbGVSZW1vdGVBdXRoLlJlbW90ZURl",
-            "dmljZUluZm8aFy5BcHBsZVJlbW90ZUF1dGgucnNkYXRhIgBiBnByb3RvMw=="));
+            "KA0SFgoOZmFpcl9wbGF5X2d1aWQYCCABKAkiUAoGcnNkYXRhEg8KB3JzX2Rh",
+            "dGEYASABKAwSCwoDcmV0GAIgASgIEhgKC3JzX3NpZ19kYXRhGAMgASgMSACI",
+            "AQFCDgoMX3JzX3NpZ19kYXRhMlEKA2FpZBJKCgpHZW5lcmF0ZVJTEiEuQXBw",
+            "bGVSZW1vdGVBdXRoLlJlbW90ZURldmljZUluZm8aFy5BcHBsZVJlbW90ZUF1",
+            "dGgucnNkYXRhIgBiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.RemoteDeviceInfo), global::AppleRemoteAuth.RemoteDeviceInfo.Parser, new[]{ "RqData", "RqSigData", "GrappaSessionId", "KeyFairPlayGuid", "FairPlayCertificate", "FairDeviceType", "PrivateKey", "FairPlayGuid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rsdata), global::AppleRemoteAuth.rsdata.Parser, new[]{ "RsData", "Ret", "RsSigData" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rsdata), global::AppleRemoteAuth.rsdata.Parser, new[]{ "RsData", "Ret", "RsSigData" }, new[]{ "RsSigData" }, null, null, null)
           }));
     }
     #endregion
@@ -570,14 +571,26 @@ namespace AppleRemoteAuth {
 
     /// <summary>Field number for the "rs_sig_data" field.</summary>
     public const int RsSigDataFieldNumber = 3;
-    private pb::ByteString rsSigData_ = pb::ByteString.Empty;
+    private pb::ByteString rsSigData_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pb::ByteString RsSigData {
-      get { return rsSigData_; }
+      get { return rsSigData_ ?? pb::ByteString.Empty; }
       set {
         rsSigData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
+    }
+    /// <summary>Gets whether the "rs_sig_data" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRsSigData {
+      get { return rsSigData_ != null; }
+    }
+    /// <summary>Clears the value of the "rs_sig_data" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRsSigData() {
+      rsSigData_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -607,7 +620,7 @@ namespace AppleRemoteAuth {
       int hash = 1;
       if (RsData.Length != 0) hash ^= RsData.GetHashCode();
       if (Ret != false) hash ^= Ret.GetHashCode();
-      if (RsSigData.Length != 0) hash ^= RsSigData.GetHashCode();
+      if (HasRsSigData) hash ^= RsSigData.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -634,7 +647,7 @@ namespace AppleRemoteAuth {
         output.WriteRawTag(16);
         output.WriteBool(Ret);
       }
-      if (RsSigData.Length != 0) {
+      if (HasRsSigData) {
         output.WriteRawTag(26);
         output.WriteBytes(RsSigData);
       }
@@ -656,7 +669,7 @@ namespace AppleRemoteAuth {
         output.WriteRawTag(16);
         output.WriteBool(Ret);
       }
-      if (RsSigData.Length != 0) {
+      if (HasRsSigData) {
         output.WriteRawTag(26);
         output.WriteBytes(RsSigData);
       }
@@ -676,7 +689,7 @@ namespace AppleRemoteAuth {
       if (Ret != false) {
         size += 1 + 1;
       }
-      if (RsSigData.Length != 0) {
+      if (HasRsSigData) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(RsSigData);
       }
       if (_unknownFields != null) {
@@ -697,7 +710,7 @@ namespace AppleRemoteAuth {
       if (other.Ret != false) {
         Ret = other.Ret;
       }
-      if (other.RsSigData.Length != 0) {
+      if (other.HasRsSigData) {
         RsSigData = other.RsSigData;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);

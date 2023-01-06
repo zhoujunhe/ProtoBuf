@@ -170,7 +170,7 @@ typedef struct RemoteDeviceInfo__storage_ {
 
 @dynamic rsData;
 @dynamic ret;
-@dynamic rsSigData;
+@dynamic hasRsSigData, rsSigData;
 
 typedef struct rsdata__storage_ {
   uint32_t _has_storage_[1];
@@ -208,7 +208,7 @@ typedef struct rsdata__storage_ {
         .number = rsdata_FieldNumber_RsSigData,
         .hasIndex = 3,
         .offset = (uint32_t)offsetof(rsdata__storage_, rsSigData),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
     };
