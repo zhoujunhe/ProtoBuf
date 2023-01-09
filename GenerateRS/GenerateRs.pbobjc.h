@@ -55,6 +55,7 @@ typedef GPB_ENUM(RemoteDeviceInfo_FieldNumber) {
   RemoteDeviceInfo_FieldNumber_FairDeviceType = 6,
   RemoteDeviceInfo_FieldNumber_PrivateKey = 7,
   RemoteDeviceInfo_FieldNumber_FairPlayGuid = 8,
+  RemoteDeviceInfo_FieldNumber_Grappa = 9,
 };
 
 /**
@@ -77,6 +78,10 @@ GPB_FINAL @interface RemoteDeviceInfo : GPBMessage
 @property(nonatomic, readwrite) uint32_t privateKey;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *fairPlayGuid;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *grappa;
+/** Test to see if @c grappa has been set. */
+@property(nonatomic, readwrite) BOOL hasGrappa;
 
 @end
 

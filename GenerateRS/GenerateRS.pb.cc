@@ -23,15 +23,17 @@ namespace _pbi = _pb::internal;
 namespace AppleRemoteAuth {
 PROTOBUF_CONSTEXPR RemoteDeviceInfo::RemoteDeviceInfo(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.rq_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.rq_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.rq_sig_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.key_fair_play_guid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.fair_play_certificate_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.fair_play_guid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.grappa_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.grappa_session_id_)*/0u
   , /*decltype(_impl_.private_key_)*/0u
-  , /*decltype(_impl_.fair_device_type_)*/int64_t{0}
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+  , /*decltype(_impl_.fair_device_type_)*/int64_t{0}} {}
 struct RemoteDeviceInfoDefaultTypeInternal {
   PROTOBUF_CONSTEXPR RemoteDeviceInfoDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -63,7 +65,7 @@ static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_Gener
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_GenerateRS_2eproto = nullptr;
 
 const uint32_t TableStruct_GenerateRS_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -77,6 +79,16 @@ const uint32_t TableStruct_GenerateRS_2eproto::offsets[] PROTOBUF_SECTION_VARIAB
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.fair_device_type_),
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.private_key_),
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.fair_play_guid_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.grappa_),
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
+  0,
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::rsdata, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::rsdata, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -91,8 +103,8 @@ const uint32_t TableStruct_GenerateRS_2eproto::offsets[] PROTOBUF_SECTION_VARIAB
   0,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::AppleRemoteAuth::RemoteDeviceInfo)},
-  { 14, 23, -1, sizeof(::AppleRemoteAuth::rsdata)},
+  { 0, 15, -1, sizeof(::AppleRemoteAuth::RemoteDeviceInfo)},
+  { 24, 33, -1, sizeof(::AppleRemoteAuth::rsdata)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -101,21 +113,22 @@ static const ::_pb::Message* const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_GenerateRS_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\020GenerateRS.proto\022\017AppleRemoteAuth\"\325\001\n\020"
+  "\n\020GenerateRS.proto\022\017AppleRemoteAuth\"\365\001\n\020"
   "RemoteDeviceInfo\022\017\n\007rq_data\030\001 \001(\014\022\023\n\013rq_"
   "sig_data\030\002 \001(\014\022\031\n\021grappa_session_id\030\003 \001("
   "\r\022\032\n\022key_fair_play_guid\030\004 \001(\014\022\035\n\025fair_pl"
   "ay_certificate\030\005 \001(\014\022\030\n\020fair_device_type"
   "\030\006 \001(\003\022\023\n\013private_key\030\007 \001(\r\022\026\n\016fair_play"
-  "_guid\030\010 \001(\t\"P\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013"
-  "\n\003ret\030\002 \001(\010\022\030\n\013rs_sig_data\030\003 \001(\014H\000\210\001\001B\016\n"
-  "\014_rs_sig_data2Q\n\003aid\022J\n\nGenerateRS\022!.App"
-  "leRemoteAuth.RemoteDeviceInfo\032\027.AppleRem"
-  "oteAuth.rsdata\"\000b\006proto3"
+  "_guid\030\010 \001(\t\022\023\n\006grappa\030\t \001(\014H\000\210\001\001B\t\n\007_gra"
+  "ppa\"P\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013\n\003ret\030\002 "
+  "\001(\010\022\030\n\013rs_sig_data\030\003 \001(\014H\000\210\001\001B\016\n\014_rs_sig"
+  "_data2Q\n\003aid\022J\n\nGenerateRS\022!.AppleRemote"
+  "Auth.RemoteDeviceInfo\032\027.AppleRemoteAuth."
+  "rsdata\"\000b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_GenerateRS_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_GenerateRS_2eproto = {
-    false, false, 424, descriptor_table_protodef_GenerateRS_2eproto,
+    false, false, 456, descriptor_table_protodef_GenerateRS_2eproto,
     "GenerateRS.proto",
     &descriptor_table_GenerateRS_2eproto_once, nullptr, 0, 2,
     schemas, file_default_instances, TableStruct_GenerateRS_2eproto::offsets,
@@ -134,6 +147,10 @@ namespace AppleRemoteAuth {
 
 class RemoteDeviceInfo::_Internal {
  public:
+  using HasBits = decltype(std::declval<RemoteDeviceInfo>()._impl_._has_bits_);
+  static void set_has_grappa(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
 RemoteDeviceInfo::RemoteDeviceInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -146,15 +163,17 @@ RemoteDeviceInfo::RemoteDeviceInfo(const RemoteDeviceInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   RemoteDeviceInfo* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.rq_data_){}
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.rq_data_){}
     , decltype(_impl_.rq_sig_data_){}
     , decltype(_impl_.key_fair_play_guid_){}
     , decltype(_impl_.fair_play_certificate_){}
     , decltype(_impl_.fair_play_guid_){}
+    , decltype(_impl_.grappa_){}
     , decltype(_impl_.grappa_session_id_){}
     , decltype(_impl_.private_key_){}
-    , decltype(_impl_.fair_device_type_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
+    , decltype(_impl_.fair_device_type_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.rq_data_.InitDefault();
@@ -197,6 +216,14 @@ RemoteDeviceInfo::RemoteDeviceInfo(const RemoteDeviceInfo& from)
     _this->_impl_.fair_play_guid_.Set(from._internal_fair_play_guid(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.grappa_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.grappa_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_grappa()) {
+    _this->_impl_.grappa_.Set(from._internal_grappa(), 
+      _this->GetArenaForAllocation());
+  }
   ::memcpy(&_impl_.grappa_session_id_, &from._impl_.grappa_session_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.fair_device_type_) -
     reinterpret_cast<char*>(&_impl_.grappa_session_id_)) + sizeof(_impl_.fair_device_type_));
@@ -208,15 +235,17 @@ inline void RemoteDeviceInfo::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.rq_data_){}
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.rq_data_){}
     , decltype(_impl_.rq_sig_data_){}
     , decltype(_impl_.key_fair_play_guid_){}
     , decltype(_impl_.fair_play_certificate_){}
     , decltype(_impl_.fair_play_guid_){}
+    , decltype(_impl_.grappa_){}
     , decltype(_impl_.grappa_session_id_){0u}
     , decltype(_impl_.private_key_){0u}
     , decltype(_impl_.fair_device_type_){int64_t{0}}
-    , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.rq_data_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -238,6 +267,10 @@ inline void RemoteDeviceInfo::SharedCtor(
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.fair_play_guid_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.grappa_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.grappa_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 RemoteDeviceInfo::~RemoteDeviceInfo() {
@@ -256,6 +289,7 @@ inline void RemoteDeviceInfo::SharedDtor() {
   _impl_.key_fair_play_guid_.Destroy();
   _impl_.fair_play_certificate_.Destroy();
   _impl_.fair_play_guid_.Destroy();
+  _impl_.grappa_.Destroy();
 }
 
 void RemoteDeviceInfo::SetCachedSize(int size) const {
@@ -273,14 +307,20 @@ void RemoteDeviceInfo::Clear() {
   _impl_.key_fair_play_guid_.ClearToEmpty();
   _impl_.fair_play_certificate_.ClearToEmpty();
   _impl_.fair_play_guid_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    _impl_.grappa_.ClearNonDefaultToEmpty();
+  }
   ::memset(&_impl_.grappa_session_id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.fair_device_type_) -
       reinterpret_cast<char*>(&_impl_.grappa_session_id_)) + sizeof(_impl_.fair_device_type_));
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* RemoteDeviceInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
@@ -355,6 +395,15 @@ const char* RemoteDeviceInfo::_InternalParse(const char* ptr, ::_pbi::ParseConte
         } else
           goto handle_unusual;
         continue;
+      // optional bytes grappa = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          auto str = _internal_mutable_grappa();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -371,6 +420,7 @@ const char* RemoteDeviceInfo::_InternalParse(const char* ptr, ::_pbi::ParseConte
     CHK_(ptr != nullptr);
   }  // while
 message_done:
+  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -436,6 +486,12 @@ uint8_t* RemoteDeviceInfo::_InternalSerialize(
         8, this->_internal_fair_play_guid(), target);
   }
 
+  // optional bytes grappa = 9;
+  if (_internal_has_grappa()) {
+    target = stream->WriteBytesMaybeAliased(
+        9, this->_internal_grappa(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -487,6 +543,14 @@ size_t RemoteDeviceInfo::ByteSizeLong() const {
         this->_internal_fair_play_guid());
   }
 
+  // optional bytes grappa = 9;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_grappa());
+  }
+
   // uint32 grappa_session_id = 3;
   if (this->_internal_grappa_session_id() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_grappa_session_id());
@@ -535,6 +599,9 @@ void RemoteDeviceInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
   if (!from._internal_fair_play_guid().empty()) {
     _this->_internal_set_fair_play_guid(from._internal_fair_play_guid());
   }
+  if (from._internal_has_grappa()) {
+    _this->_internal_set_grappa(from._internal_grappa());
+  }
   if (from._internal_grappa_session_id() != 0) {
     _this->_internal_set_grappa_session_id(from._internal_grappa_session_id());
   }
@@ -563,6 +630,7 @@ void RemoteDeviceInfo::InternalSwap(RemoteDeviceInfo* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.rq_data_, lhs_arena,
       &other->_impl_.rq_data_, rhs_arena
@@ -582,6 +650,10 @@ void RemoteDeviceInfo::InternalSwap(RemoteDeviceInfo* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.fair_play_guid_, lhs_arena,
       &other->_impl_.fair_play_guid_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.grappa_, lhs_arena,
+      &other->_impl_.grappa_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(RemoteDeviceInfo, _impl_.fair_device_type_)

@@ -14,6 +14,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :fair_device_type, :int64, 6
       optional :private_key, :uint32, 7
       optional :fair_play_guid, :string, 8
+      proto3_optional :grappa, :bytes, 9
     end
     add_message "AppleRemoteAuth.rsdata" do
       optional :rs_data, :bytes, 1

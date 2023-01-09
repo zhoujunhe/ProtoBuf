@@ -24,20 +24,21 @@ namespace AppleRemoteAuth {
     static GenerateRSReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChBHZW5lcmF0ZVJTLnByb3RvEg9BcHBsZVJlbW90ZUF1dGgi1QEKEFJlbW90",
+            "ChBHZW5lcmF0ZVJTLnByb3RvEg9BcHBsZVJlbW90ZUF1dGgi9QEKEFJlbW90",
             "ZURldmljZUluZm8SDwoHcnFfZGF0YRgBIAEoDBITCgtycV9zaWdfZGF0YRgC",
             "IAEoDBIZChFncmFwcGFfc2Vzc2lvbl9pZBgDIAEoDRIaChJrZXlfZmFpcl9w",
             "bGF5X2d1aWQYBCABKAwSHQoVZmFpcl9wbGF5X2NlcnRpZmljYXRlGAUgASgM",
             "EhgKEGZhaXJfZGV2aWNlX3R5cGUYBiABKAMSEwoLcHJpdmF0ZV9rZXkYByAB",
-            "KA0SFgoOZmFpcl9wbGF5X2d1aWQYCCABKAkiUAoGcnNkYXRhEg8KB3JzX2Rh",
-            "dGEYASABKAwSCwoDcmV0GAIgASgIEhgKC3JzX3NpZ19kYXRhGAMgASgMSACI",
-            "AQFCDgoMX3JzX3NpZ19kYXRhMlEKA2FpZBJKCgpHZW5lcmF0ZVJTEiEuQXBw",
-            "bGVSZW1vdGVBdXRoLlJlbW90ZURldmljZUluZm8aFy5BcHBsZVJlbW90ZUF1",
-            "dGgucnNkYXRhIgBiBnByb3RvMw=="));
+            "KA0SFgoOZmFpcl9wbGF5X2d1aWQYCCABKAkSEwoGZ3JhcHBhGAkgASgMSACI",
+            "AQFCCQoHX2dyYXBwYSJQCgZyc2RhdGESDwoHcnNfZGF0YRgBIAEoDBILCgNy",
+            "ZXQYAiABKAgSGAoLcnNfc2lnX2RhdGEYAyABKAxIAIgBAUIOCgxfcnNfc2ln",
+            "X2RhdGEyUQoDYWlkEkoKCkdlbmVyYXRlUlMSIS5BcHBsZVJlbW90ZUF1dGgu",
+            "UmVtb3RlRGV2aWNlSW5mbxoXLkFwcGxlUmVtb3RlQXV0aC5yc2RhdGEiAGIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.RemoteDeviceInfo), global::AppleRemoteAuth.RemoteDeviceInfo.Parser, new[]{ "RqData", "RqSigData", "GrappaSessionId", "KeyFairPlayGuid", "FairPlayCertificate", "FairDeviceType", "PrivateKey", "FairPlayGuid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.RemoteDeviceInfo), global::AppleRemoteAuth.RemoteDeviceInfo.Parser, new[]{ "RqData", "RqSigData", "GrappaSessionId", "KeyFairPlayGuid", "FairPlayCertificate", "FairDeviceType", "PrivateKey", "FairPlayGuid", "Grappa" }, new[]{ "Grappa" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rsdata), global::AppleRemoteAuth.rsdata.Parser, new[]{ "RsData", "Ret", "RsSigData" }, new[]{ "RsSigData" }, null, null, null)
           }));
     }
@@ -90,6 +91,7 @@ namespace AppleRemoteAuth {
       fairDeviceType_ = other.fairDeviceType_;
       privateKey_ = other.privateKey_;
       fairPlayGuid_ = other.fairPlayGuid_;
+      grappa_ = other.grappa_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -195,6 +197,30 @@ namespace AppleRemoteAuth {
       }
     }
 
+    /// <summary>Field number for the "grappa" field.</summary>
+    public const int GrappaFieldNumber = 9;
+    private pb::ByteString grappa_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Grappa {
+      get { return grappa_ ?? pb::ByteString.Empty; }
+      set {
+        grappa_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "grappa" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGrappa {
+      get { return grappa_ != null; }
+    }
+    /// <summary>Clears the value of the "grappa" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGrappa() {
+      grappa_ = null;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -218,6 +244,7 @@ namespace AppleRemoteAuth {
       if (FairDeviceType != other.FairDeviceType) return false;
       if (PrivateKey != other.PrivateKey) return false;
       if (FairPlayGuid != other.FairPlayGuid) return false;
+      if (Grappa != other.Grappa) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -233,6 +260,7 @@ namespace AppleRemoteAuth {
       if (FairDeviceType != 0L) hash ^= FairDeviceType.GetHashCode();
       if (PrivateKey != 0) hash ^= PrivateKey.GetHashCode();
       if (FairPlayGuid.Length != 0) hash ^= FairPlayGuid.GetHashCode();
+      if (HasGrappa) hash ^= Grappa.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -283,6 +311,10 @@ namespace AppleRemoteAuth {
         output.WriteRawTag(66);
         output.WriteString(FairPlayGuid);
       }
+      if (HasGrappa) {
+        output.WriteRawTag(74);
+        output.WriteBytes(Grappa);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -325,6 +357,10 @@ namespace AppleRemoteAuth {
         output.WriteRawTag(66);
         output.WriteString(FairPlayGuid);
       }
+      if (HasGrappa) {
+        output.WriteRawTag(74);
+        output.WriteBytes(Grappa);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -358,6 +394,9 @@ namespace AppleRemoteAuth {
       }
       if (FairPlayGuid.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(FairPlayGuid);
+      }
+      if (HasGrappa) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Grappa);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -394,6 +433,9 @@ namespace AppleRemoteAuth {
       }
       if (other.FairPlayGuid.Length != 0) {
         FairPlayGuid = other.FairPlayGuid;
+      }
+      if (other.HasGrappa) {
+        Grappa = other.Grappa;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -442,6 +484,10 @@ namespace AppleRemoteAuth {
             FairPlayGuid = input.ReadString();
             break;
           }
+          case 74: {
+            Grappa = input.ReadBytes();
+            break;
+          }
         }
       }
     #endif
@@ -487,6 +533,10 @@ namespace AppleRemoteAuth {
           }
           case 66: {
             FairPlayGuid = input.ReadString();
+            break;
+          }
+          case 74: {
+            Grappa = input.ReadBytes();
             break;
           }
         }

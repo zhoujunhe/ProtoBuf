@@ -71,6 +71,17 @@ public final class GenerateRS {
      */
     com.google.protobuf.ByteString
         getFairPlayGuidBytes();
+
+    /**
+     * <code>optional bytes grappa = 9;</code>
+     * @return Whether the grappa field is set.
+     */
+    boolean hasGrappa();
+    /**
+     * <code>optional bytes grappa = 9;</code>
+     * @return The grappa.
+     */
+    com.google.protobuf.ByteString getGrappa();
   }
   /**
    * <pre>
@@ -94,6 +105,7 @@ public final class GenerateRS {
       keyFairPlayGuid_ = com.google.protobuf.ByteString.EMPTY;
       fairPlayCertificate_ = com.google.protobuf.ByteString.EMPTY;
       fairPlayGuid_ = "";
+      grappa_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -116,6 +128,7 @@ public final class GenerateRS {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -167,6 +180,11 @@ public final class GenerateRS {
               fairPlayGuid_ = s;
               break;
             }
+            case 74: {
+              bitField0_ |= 0x00000001;
+              grappa_ = input.readBytes();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -201,6 +219,7 @@ public final class GenerateRS {
               AppleRemoteAuth.GenerateRS.RemoteDeviceInfo.class, AppleRemoteAuth.GenerateRS.RemoteDeviceInfo.Builder.class);
     }
 
+    private int bitField0_;
     public static final int RQ_DATA_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString rqData_;
     /**
@@ -316,6 +335,25 @@ public final class GenerateRS {
       }
     }
 
+    public static final int GRAPPA_FIELD_NUMBER = 9;
+    private com.google.protobuf.ByteString grappa_;
+    /**
+     * <code>optional bytes grappa = 9;</code>
+     * @return Whether the grappa field is set.
+     */
+    @java.lang.Override
+    public boolean hasGrappa() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional bytes grappa = 9;</code>
+     * @return The grappa.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getGrappa() {
+      return grappa_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -353,6 +391,9 @@ public final class GenerateRS {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fairPlayGuid_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, fairPlayGuid_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeBytes(9, grappa_);
       }
       unknownFields.writeTo(output);
     }
@@ -394,6 +435,10 @@ public final class GenerateRS {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fairPlayGuid_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, fairPlayGuid_);
       }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(9, grappa_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -425,6 +470,11 @@ public final class GenerateRS {
           != other.getPrivateKey()) return false;
       if (!getFairPlayGuid()
           .equals(other.getFairPlayGuid())) return false;
+      if (hasGrappa() != other.hasGrappa()) return false;
+      if (hasGrappa()) {
+        if (!getGrappa()
+            .equals(other.getGrappa())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -453,6 +503,10 @@ public final class GenerateRS {
       hash = (53 * hash) + getPrivateKey();
       hash = (37 * hash) + FAIR_PLAY_GUID_FIELD_NUMBER;
       hash = (53 * hash) + getFairPlayGuid().hashCode();
+      if (hasGrappa()) {
+        hash = (37 * hash) + GRAPPA_FIELD_NUMBER;
+        hash = (53 * hash) + getGrappa().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -606,6 +660,8 @@ public final class GenerateRS {
 
         fairPlayGuid_ = "";
 
+        grappa_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -632,6 +688,8 @@ public final class GenerateRS {
       @java.lang.Override
       public AppleRemoteAuth.GenerateRS.RemoteDeviceInfo buildPartial() {
         AppleRemoteAuth.GenerateRS.RemoteDeviceInfo result = new AppleRemoteAuth.GenerateRS.RemoteDeviceInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.rqData_ = rqData_;
         result.rqSigData_ = rqSigData_;
         result.grappaSessionId_ = grappaSessionId_;
@@ -640,6 +698,11 @@ public final class GenerateRS {
         result.fairDeviceType_ = fairDeviceType_;
         result.privateKey_ = privateKey_;
         result.fairPlayGuid_ = fairPlayGuid_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.grappa_ = grappa_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -713,6 +776,9 @@ public final class GenerateRS {
           fairPlayGuid_ = other.fairPlayGuid_;
           onChanged();
         }
+        if (other.hasGrappa()) {
+          setGrappa(other.getGrappa());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -741,6 +807,7 @@ public final class GenerateRS {
         }
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.ByteString rqData_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -1043,6 +1110,48 @@ public final class GenerateRS {
   checkByteStringIsUtf8(value);
         
         fairPlayGuid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString grappa_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes grappa = 9;</code>
+       * @return Whether the grappa field is set.
+       */
+      @java.lang.Override
+      public boolean hasGrappa() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional bytes grappa = 9;</code>
+       * @return The grappa.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getGrappa() {
+        return grappa_;
+      }
+      /**
+       * <code>optional bytes grappa = 9;</code>
+       * @param value The grappa to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGrappa(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        grappa_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes grappa = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGrappa() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        grappa_ = getDefaultInstance().getGrappa();
         onChanged();
         return this;
       }
@@ -1800,17 +1909,18 @@ public final class GenerateRS {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020GenerateRS.proto\022\017AppleRemoteAuth\"\325\001\n\020" +
+      "\n\020GenerateRS.proto\022\017AppleRemoteAuth\"\365\001\n\020" +
       "RemoteDeviceInfo\022\017\n\007rq_data\030\001 \001(\014\022\023\n\013rq_" +
       "sig_data\030\002 \001(\014\022\031\n\021grappa_session_id\030\003 \001(" +
       "\r\022\032\n\022key_fair_play_guid\030\004 \001(\014\022\035\n\025fair_pl" +
       "ay_certificate\030\005 \001(\014\022\030\n\020fair_device_type" +
       "\030\006 \001(\003\022\023\n\013private_key\030\007 \001(\r\022\026\n\016fair_play" +
-      "_guid\030\010 \001(\t\"P\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013" +
-      "\n\003ret\030\002 \001(\010\022\030\n\013rs_sig_data\030\003 \001(\014H\000\210\001\001B\016\n" +
-      "\014_rs_sig_data2Q\n\003aid\022J\n\nGenerateRS\022!.App" +
-      "leRemoteAuth.RemoteDeviceInfo\032\027.AppleRem" +
-      "oteAuth.rsdata\"\000b\006proto3"
+      "_guid\030\010 \001(\t\022\023\n\006grappa\030\t \001(\014H\000\210\001\001B\t\n\007_gra" +
+      "ppa\"P\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013\n\003ret\030\002 " +
+      "\001(\010\022\030\n\013rs_sig_data\030\003 \001(\014H\000\210\001\001B\016\n\014_rs_sig" +
+      "_data2Q\n\003aid\022J\n\nGenerateRS\022!.AppleRemote" +
+      "Auth.RemoteDeviceInfo\032\027.AppleRemoteAuth." +
+      "rsdata\"\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1821,7 +1931,7 @@ public final class GenerateRS {
     internal_static_AppleRemoteAuth_RemoteDeviceInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AppleRemoteAuth_RemoteDeviceInfo_descriptor,
-        new java.lang.String[] { "RqData", "RqSigData", "GrappaSessionId", "KeyFairPlayGuid", "FairPlayCertificate", "FairDeviceType", "PrivateKey", "FairPlayGuid", });
+        new java.lang.String[] { "RqData", "RqSigData", "GrappaSessionId", "KeyFairPlayGuid", "FairPlayCertificate", "FairDeviceType", "PrivateKey", "FairPlayGuid", "Grappa", "Grappa", });
     internal_static_AppleRemoteAuth_rsdata_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_AppleRemoteAuth_rsdata_fieldAccessorTable = new

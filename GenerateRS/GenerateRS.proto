@@ -31,6 +31,7 @@ message RemoteDeviceInfo {
   int64 fair_device_type=6;
   uint32 private_key=7;
   string fair_play_guid=8;
+  optional bytes grappa=9;
 }
 
 // The response message 

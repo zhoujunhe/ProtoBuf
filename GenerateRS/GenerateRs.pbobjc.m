@@ -54,6 +54,7 @@ static GPBFileDescriptor *GenerateRsRoot_FileDescriptor(void) {
 @dynamic fairDeviceType;
 @dynamic privateKey;
 @dynamic fairPlayGuid;
+@dynamic hasGrappa, grappa;
 
 typedef struct RemoteDeviceInfo__storage_ {
   uint32_t _has_storage_[1];
@@ -64,6 +65,7 @@ typedef struct RemoteDeviceInfo__storage_ {
   NSData *keyFairPlayGuid;
   NSData *fairPlayCertificate;
   NSString *fairPlayGuid;
+  NSData *grappa;
   int64_t fairDeviceType;
 } RemoteDeviceInfo__storage_;
 
@@ -144,6 +146,15 @@ typedef struct RemoteDeviceInfo__storage_ {
         .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, fairPlayGuid),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "grappa",
+        .dataTypeSpecific.clazz = Nil,
+        .number = RemoteDeviceInfo_FieldNumber_Grappa,
+        .hasIndex = 8,
+        .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, grappa),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
       },
     };
     GPBDescriptor *localDescriptor =

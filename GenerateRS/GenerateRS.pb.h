@@ -186,6 +186,7 @@ class RemoteDeviceInfo final :
     kKeyFairPlayGuidFieldNumber = 4,
     kFairPlayCertificateFieldNumber = 5,
     kFairPlayGuidFieldNumber = 8,
+    kGrappaFieldNumber = 9,
     kGrappaSessionIdFieldNumber = 3,
     kPrivateKeyFieldNumber = 7,
     kFairDeviceTypeFieldNumber = 6,
@@ -260,6 +261,24 @@ class RemoteDeviceInfo final :
   std::string* _internal_mutable_fair_play_guid();
   public:
 
+  // optional bytes grappa = 9;
+  bool has_grappa() const;
+  private:
+  bool _internal_has_grappa() const;
+  public:
+  void clear_grappa();
+  const std::string& grappa() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_grappa(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_grappa();
+  PROTOBUF_NODISCARD std::string* release_grappa();
+  void set_allocated_grappa(std::string* grappa);
+  private:
+  const std::string& _internal_grappa() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_grappa(const std::string& value);
+  std::string* _internal_mutable_grappa();
+  public:
+
   // uint32 grappa_session_id = 3;
   void clear_grappa_session_id();
   uint32_t grappa_session_id() const;
@@ -295,15 +314,17 @@ class RemoteDeviceInfo final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rq_data_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rq_sig_data_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_fair_play_guid_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fair_play_certificate_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fair_play_guid_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr grappa_;
     uint32_t grappa_session_id_;
     uint32_t private_key_;
     int64_t fair_device_type_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_GenerateRS_2eproto;
@@ -812,6 +833,74 @@ inline void RemoteDeviceInfo::set_allocated_fair_play_guid(std::string* fair_pla
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.RemoteDeviceInfo.fair_play_guid)
+}
+
+// optional bytes grappa = 9;
+inline bool RemoteDeviceInfo::_internal_has_grappa() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool RemoteDeviceInfo::has_grappa() const {
+  return _internal_has_grappa();
+}
+inline void RemoteDeviceInfo::clear_grappa() {
+  _impl_.grappa_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& RemoteDeviceInfo::grappa() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.RemoteDeviceInfo.grappa)
+  return _internal_grappa();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RemoteDeviceInfo::set_grappa(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.grappa_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.grappa)
+}
+inline std::string* RemoteDeviceInfo::mutable_grappa() {
+  std::string* _s = _internal_mutable_grappa();
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.RemoteDeviceInfo.grappa)
+  return _s;
+}
+inline const std::string& RemoteDeviceInfo::_internal_grappa() const {
+  return _impl_.grappa_.Get();
+}
+inline void RemoteDeviceInfo::_internal_set_grappa(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.grappa_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RemoteDeviceInfo::_internal_mutable_grappa() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.grappa_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RemoteDeviceInfo::release_grappa() {
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.RemoteDeviceInfo.grappa)
+  if (!_internal_has_grappa()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.grappa_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.grappa_.IsDefault()) {
+    _impl_.grappa_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void RemoteDeviceInfo::set_allocated_grappa(std::string* grappa) {
+  if (grappa != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.grappa_.SetAllocated(grappa, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.grappa_.IsDefault()) {
+    _impl_.grappa_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.RemoteDeviceInfo.grappa)
 }
 
 // -------------------------------------------------------------------
